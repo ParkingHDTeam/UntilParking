@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <application>
+        <!-- 차량이 아닌 기기에서도 설치되게 required=false. 그때 주행 상태는 UNKNOWN이다(스펙 R9). -->
+        <uses-library android:name="android.car" android:required="false" />
+    </application>
+</manifest>

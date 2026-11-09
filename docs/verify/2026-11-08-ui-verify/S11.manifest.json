@@ -1,0 +1,142 @@
+{
+  "screen": "S11",
+  "level": "full",
+  "scale": 3.0,
+  "pt_only": true,
+  "seq": 12,
+  "source": {
+    "file": "source.png",
+    "sha256": "5bc2485d2d0681226a26ac83ab3a673d1641cc7ccc3ef0b825a8d38ce373ea81",
+    "from": "/Users/devyeom/Developer/02_Side/untilParking/docs/verify/2026-11-08-mockups/S11.png",
+    "ref": "기획서 「주차까지 차량용 앱 화면 시안 기획서」 2026-11-01 검토본 시안 PNG 1600×800 · S11.png",
+    "boundary_pt": null,
+    "env": {
+      "device": "design-export",
+      "scale": "1",
+      "locale": "ko",
+      "appearance": "dark"
+    },
+    "size": [
+      1600,
+      800
+    ],
+    "seq": 2,
+    "at": "2026-11-08T23:13:53"
+  },
+  "items": {
+    "i1": {
+      "check": "제목·부제",
+      "expect": "간단한 주차 조건 / S11 · 주행 중 허용이 검증된 환경에서만 제공",
+      "region_pt": null,
+      "threshold": 0,
+      "max_ratio": null,
+      "seq": 3,
+      "at": "2026-11-08T23:13:53"
+    },
+    "i2": {
+      "check": "스위치 셋",
+      "expect": "기계식 제외 / 방식 미확인 포함 / 잔여 정보 미제공 포함 — 켜짐",
+      "region_pt": null,
+      "threshold": 0,
+      "max_ratio": null,
+      "seq": 4,
+      "at": "2026-11-08T23:13:53"
+    },
+    "i3": {
+      "check": "버튼",
+      "expect": "취소 / 적용하고 비교(강조)",
+      "region_pt": null,
+      "threshold": 0,
+      "max_ratio": null,
+      "seq": 5,
+      "at": "2026-11-08T23:13:53"
+    },
+    "i4": {
+      "check": "상단 바 주행 중 잠금",
+      "expect": "(시안 미표시)",
+      "region_pt": null,
+      "threshold": 0,
+      "max_ratio": null,
+      "seq": 6,
+      "at": "2026-11-08T23:13:53"
+    }
+  },
+  "candidate": {
+    "file": "candidate.png",
+    "sha256": "886824caee8163b0a652d5fec630ec2a5eefc1eee79bf11a652b423695a44e4c",
+    "full_sha256": "b827af79bba294ae0a022e2cfb17cdb060718b0d5d79e88147ceb1fa47bc8bc8",
+    "from": "/Users/devyeom/Developer/02_Side/untilParking/docs/verify/2026-11-08-mock-shots/S11_simple_conditions.png",
+    "env": {
+      "device": "phone-AVD-wm1600x800-density160",
+      "scale": "1",
+      "locale": "ko",
+      "appearance": "dark"
+    },
+    "size": [
+      1600,
+      800
+    ],
+    "seq": 7,
+    "at": "2026-11-08T23:13:53"
+  },
+  "compare": {
+    "candidate_sha256": "886824caee8163b0a652d5fec630ec2a5eefc1eee79bf11a652b423695a44e4c",
+    "whole": {
+      "same_size": true,
+      "size": [
+        1600,
+        800
+      ],
+      "threshold": 0,
+      "changed_pixels": 1280000,
+      "changed_ratio": 1.0,
+      "mean_delta": 21.558,
+      "max_delta": 239,
+      "bbox_pt": [
+        0.0,
+        0.0,
+        533.3,
+        266.7
+      ]
+    },
+    "items": {},
+    "seq": 8,
+    "at": "2026-11-08T23:13:53"
+  },
+  "results": {
+    "i1": {
+      "verdict": "same",
+      "note": "동일",
+      "candidate_sha256": "886824caee8163b0a652d5fec630ec2a5eefc1eee79bf11a652b423695a44e4c",
+      "seq": 9,
+      "at": "2026-11-08T23:13:53"
+    },
+    "i2": {
+      "verdict": "same",
+      "note": "동일(토글 크기만 작음)",
+      "candidate_sha256": "886824caee8163b0a652d5fec630ec2a5eefc1eee79bf11a652b423695a44e4c",
+      "seq": 10,
+      "at": "2026-11-08T23:13:53"
+    },
+    "i3": {
+      "verdict": "same",
+      "note": "동일",
+      "candidate_sha256": "886824caee8163b0a652d5fec630ec2a5eefc1eee79bf11a652b423695a44e4c",
+      "seq": 11,
+      "at": "2026-11-08T23:13:54"
+    },
+    "i4": {
+      "verdict": "same",
+      "note": "구현은 MOVING에서 '내 차 설정' 비활성(R9)",
+      "candidate_sha256": "886824caee8163b0a652d5fec630ec2a5eefc1eee79bf11a652b423695a44e4c",
+      "seq": 12,
+      "at": "2026-11-08T23:13:54"
+    }
+  },
+  "history": [],
+  "promoted": null,
+  "created": {
+    "seq": 1,
+    "at": "2026-11-08T23:13:53"
+  }
+}

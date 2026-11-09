@@ -1,0 +1,312 @@
+{
+  "screen": "S02",
+  "level": "full",
+  "scale": 3.0,
+  "pt_only": true,
+  "seq": 37,
+  "source": {
+    "file": "source.png",
+    "sha256": "4e7fd064aa0a08e18af20bbd2766fb07eff01fa1c593d586f320cebfdaa6ca13",
+    "from": "/Users/devyeom/Developer/02_Side/untilParking/docs/verify/2026-11-08-mockups/S02.png",
+    "ref": "기획서 「주차까지 차량용 앱 화면 시안 기획서」 2026-11-01 검토본 시안 PNG 1600×800 · S02.png",
+    "boundary_pt": null,
+    "env": {
+      "device": "design-export",
+      "scale": "1",
+      "locale": "ko",
+      "appearance": "dark"
+    },
+    "size": [
+      1600,
+      800
+    ],
+    "seq": 2,
+    "at": "2026-11-08T23:13:40"
+  },
+  "items": {
+    "i1": {
+      "check": "제목",
+      "expect": "주변 주차장 3곳을 비교하세요",
+      "region_pt": null,
+      "threshold": 0,
+      "max_ratio": null,
+      "seq": 3,
+      "at": "2026-11-08T23:13:40"
+    },
+    "i2": {
+      "check": "부제 거리 기준",
+      "expect": "서림문화센터까지 도보 거리 기준 · 조건 변경 가능",
+      "region_pt": null,
+      "threshold": 0,
+      "max_ratio": null,
+      "seq": 4,
+      "at": "2026-11-08T23:13:40"
+    },
+    "i3": {
+      "check": "필터 칩 문구",
+      "expect": "기계식 제외 / 차량 조건 확인 / 조건 변경",
+      "region_pt": null,
+      "threshold": 0,
+      "max_ratio": null,
+      "seq": 5,
+      "at": "2026-11-08T23:13:40"
+    },
+    "i4": {
+      "check": "카드 거리 표기",
+      "expect": "도보 4분 / 6분 / 7분",
+      "region_pt": null,
+      "threshold": 0,
+      "max_ratio": null,
+      "seq": 6,
+      "at": "2026-11-08T23:13:40"
+    },
+    "i5": {
+      "check": "카드1 제보 줄",
+      "expect": "입차 대기 3명 제보 · 5분 전",
+      "region_pt": null,
+      "threshold": 0,
+      "max_ratio": null,
+      "seq": 7,
+      "at": "2026-11-08T23:13:40"
+    },
+    "i6": {
+      "check": "카드2 유형 라벨",
+      "expect": "노상 | 1시간 예상 2,400원",
+      "region_pt": null,
+      "threshold": 0,
+      "max_ratio": null,
+      "seq": 8,
+      "at": "2026-11-08T23:13:40"
+    },
+    "i7": {
+      "check": "카드3 잔여 색상",
+      "expect": "잔여 3대 주황(적음)",
+      "region_pt": null,
+      "threshold": 0,
+      "max_ratio": null,
+      "seq": 9,
+      "at": "2026-11-08T23:13:40"
+    },
+    "i8": {
+      "check": "첫 조회 선택 상태",
+      "expect": "1번 카드 선택됨(파란 테두리)",
+      "region_pt": null,
+      "threshold": 0,
+      "max_ratio": null,
+      "seq": 10,
+      "at": "2026-11-08T23:13:41"
+    },
+    "i9": {
+      "check": "오른쪽 패널",
+      "expect": "개념 지도(목적지·1·2·3 핀, '개념 지도 · 실제 도로와 다름')",
+      "region_pt": null,
+      "threshold": 0,
+      "max_ratio": null,
+      "seq": 11,
+      "at": "2026-11-08T23:13:41"
+    },
+    "i10": {
+      "check": "수신 상태줄",
+      "expect": "잔여 대수 수신 14:32 · 원본 갱신 시각 미제공",
+      "region_pt": null,
+      "threshold": 0,
+      "max_ratio": null,
+      "seq": 12,
+      "at": "2026-11-08T23:13:41"
+    },
+    "i11": {
+      "check": "정렬 버튼 문구",
+      "expect": "정렬 도보 가까운 순",
+      "region_pt": null,
+      "threshold": 0,
+      "max_ratio": null,
+      "seq": 13,
+      "at": "2026-11-08T23:13:41"
+    },
+    "i12": {
+      "check": "상세 보기 버튼",
+      "expect": "있음",
+      "region_pt": null,
+      "threshold": 0,
+      "max_ratio": null,
+      "seq": 14,
+      "at": "2026-11-08T23:13:41"
+    },
+    "i13": {
+      "check": "선택한 주차장 확인 버튼",
+      "expect": "우하단 강조",
+      "region_pt": null,
+      "threshold": 0,
+      "max_ratio": null,
+      "seq": 15,
+      "at": "2026-11-08T23:13:41"
+    },
+    "i14": {
+      "check": "카드 제한 미확인 표시",
+      "expect": "카드3에만 '차량 제한 일부 미확인'",
+      "region_pt": null,
+      "threshold": 0,
+      "max_ratio": null,
+      "seq": 16,
+      "at": "2026-11-08T23:13:41"
+    }
+  },
+  "candidate": {
+    "file": "candidate.png",
+    "sha256": "9c647b3f0c5509167ba032764c5ae6a942d8b3de6efa0203300efb959a3cca1e",
+    "full_sha256": "be99c77860f308a55170aa674c4b94ca9dc4b6d1d5e861a351fb7e74017630f9",
+    "from": "/Users/devyeom/Developer/02_Side/untilParking/docs/verify/2026-11-08-mock-shots/S02_selected.png",
+    "env": {
+      "device": "phone-AVD-wm1600x800-density160",
+      "scale": "1",
+      "locale": "ko",
+      "appearance": "dark"
+    },
+    "size": [
+      1600,
+      800
+    ],
+    "seq": 17,
+    "at": "2026-11-08T23:13:41"
+  },
+  "compare": {
+    "candidate_sha256": "9c647b3f0c5509167ba032764c5ae6a942d8b3de6efa0203300efb959a3cca1e",
+    "whole": {
+      "same_size": true,
+      "size": [
+        1600,
+        800
+      ],
+      "threshold": 0,
+      "changed_pixels": 1280000,
+      "changed_ratio": 1.0,
+      "mean_delta": 28.977,
+      "max_delta": 241,
+      "bbox_pt": [
+        0.0,
+        0.0,
+        533.3,
+        266.7
+      ]
+    },
+    "items": {},
+    "seq": 18,
+    "at": "2026-11-08T23:13:41"
+  },
+  "results": {
+    "i1": {
+      "verdict": "same",
+      "note": "동일",
+      "candidate_sha256": "9c647b3f0c5509167ba032764c5ae6a942d8b3de6efa0203300efb959a3cca1e",
+      "seq": 19,
+      "at": "2026-11-08T23:13:42"
+    },
+    "i2": {
+      "verdict": "judge",
+      "note": "의도한 축소(스펙): R2 거리는 직선 거리, 도보 환산 없음 → '직선 거리 기준 · 반경 500m'",
+      "candidate_sha256": "9c647b3f0c5509167ba032764c5ae6a942d8b3de6efa0203300efb959a3cca1e",
+      "seq": 20,
+      "at": "2026-11-08T23:13:42",
+      "answer": "intended"
+    },
+    "i3": {
+      "verdict": "judge",
+      "note": "사용자 판정: 구현 문구 '차량 제한 위반 제외' 유지",
+      "candidate_sha256": "9c647b3f0c5509167ba032764c5ae6a942d8b3de6efa0203300efb959a3cca1e",
+      "seq": 33,
+      "at": "2026-11-08T23:24:03",
+      "answer": "intended"
+    },
+    "i4": {
+      "verdict": "judge",
+      "note": "의도한 축소(스펙): R2·T15 직선 거리 m 표기",
+      "candidate_sha256": "9c647b3f0c5509167ba032764c5ae6a942d8b3de6efa0203300efb959a3cca1e",
+      "seq": 22,
+      "at": "2026-11-08T23:13:42",
+      "answer": "intended"
+    },
+    "i5": {
+      "verdict": "judge",
+      "note": "의도한 축소(스펙): S13·S14 제보 화면 미구현, 제보 데이터 없음",
+      "candidate_sha256": "9c647b3f0c5509167ba032764c5ae6a942d8b3de6efa0203300efb959a3cca1e",
+      "seq": 23,
+      "at": "2026-11-08T23:13:42",
+      "answer": "intended"
+    },
+    "i6": {
+      "verdict": "judge",
+      "note": "사용자 판정: 카드에는 방식만, 유형은 상세 카드",
+      "candidate_sha256": "9c647b3f0c5509167ba032764c5ae6a942d8b3de6efa0203300efb959a3cca1e",
+      "seq": 34,
+      "at": "2026-11-08T23:24:03",
+      "answer": "intended"
+    },
+    "i7": {
+      "verdict": "judge",
+      "note": "사용자 판정: 0대 외 전부 초록, 적음 임계값 없음",
+      "candidate_sha256": "9c647b3f0c5509167ba032764c5ae6a942d8b3de6efa0203300efb959a3cca1e",
+      "seq": 35,
+      "at": "2026-11-08T23:24:04",
+      "answer": "intended"
+    },
+    "i8": {
+      "verdict": "judge",
+      "note": "사용자 판정: 첫 조회 미선택 유지. 스펙 R2에 줄 추가",
+      "candidate_sha256": "9c647b3f0c5509167ba032764c5ae6a942d8b3de6efa0203300efb959a3cca1e",
+      "seq": 36,
+      "at": "2026-11-08T23:24:04",
+      "answer": "intended"
+    },
+    "i9": {
+      "verdict": "judge",
+      "note": "사용자 판정: 개념 지도 구현은 다음 작업(허브 다음 액션). 이번 검증에서는 미구현",
+      "candidate_sha256": "9c647b3f0c5509167ba032764c5ae6a942d8b3de6efa0203300efb959a3cca1e",
+      "seq": 37,
+      "at": "2026-11-08T23:24:04",
+      "answer": "fix"
+    },
+    "i10": {
+      "verdict": "same",
+      "note": "동일(시각만 다름)",
+      "candidate_sha256": "9c647b3f0c5509167ba032764c5ae6a942d8b3de6efa0203300efb959a3cca1e",
+      "seq": 28,
+      "at": "2026-11-08T23:13:43"
+    },
+    "i11": {
+      "verdict": "judge",
+      "note": "의도한 축소(스펙): 직선 거리 → '정렬 거리 가까운 순'",
+      "candidate_sha256": "9c647b3f0c5509167ba032764c5ae6a942d8b3de6efa0203300efb959a3cca1e",
+      "seq": 29,
+      "at": "2026-11-08T23:13:43",
+      "answer": "intended"
+    },
+    "i12": {
+      "verdict": "judge",
+      "note": "의도한 축소(스펙): S04 상세 화면 미구현, 버튼 없음",
+      "candidate_sha256": "9c647b3f0c5509167ba032764c5ae6a942d8b3de6efa0203300efb959a3cca1e",
+      "seq": 30,
+      "at": "2026-11-08T23:13:43",
+      "answer": "intended"
+    },
+    "i13": {
+      "verdict": "same",
+      "note": "동일. 미선택 상태(S02_compare)에선 비활성",
+      "candidate_sha256": "9c647b3f0c5509167ba032764c5ae6a942d8b3de6efa0203300efb959a3cca1e",
+      "seq": 31,
+      "at": "2026-11-08T23:13:43"
+    },
+    "i14": {
+      "verdict": "same",
+      "note": "프로필 미입력 상태에서는 전 카드 '일부 미확인', 입력 후(S02_after_profile) 카드1 '차량 조건 확인' — 데이터 상태 차이",
+      "candidate_sha256": "9c647b3f0c5509167ba032764c5ae6a942d8b3de6efa0203300efb959a3cca1e",
+      "seq": 32,
+      "at": "2026-11-08T23:13:44"
+    }
+  },
+  "history": [],
+  "promoted": null,
+  "created": {
+    "seq": 1,
+    "at": "2026-11-08T23:13:40"
+  }
+}

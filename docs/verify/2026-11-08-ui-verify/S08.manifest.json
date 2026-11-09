@@ -1,0 +1,191 @@
+{
+  "screen": "S08",
+  "level": "full",
+  "scale": 3.0,
+  "pt_only": true,
+  "seq": 18,
+  "source": {
+    "file": "source.png",
+    "sha256": "84966d9983bd59c93234533b0f660cdb69c2caf965543c21d0f72a9a8db9de75",
+    "from": "/Users/devyeom/Developer/02_Side/untilParking/docs/verify/2026-11-08-mockups/S08.png",
+    "ref": "기획서 「주차까지 차량용 앱 화면 시안 기획서」 2026-11-01 검토본 시안 PNG 1600×800 · S08.png",
+    "boundary_pt": null,
+    "env": {
+      "device": "design-export",
+      "scale": "1",
+      "locale": "ko",
+      "appearance": "dark"
+    },
+    "size": [
+      1600,
+      800
+    ],
+    "seq": 2,
+    "at": "2026-11-08T23:13:51"
+  },
+  "items": {
+    "i1": {
+      "check": "제목·부제",
+      "expect": "내 차의 크기와 조건을 확인하세요 / 정차 중 차량 프로필 · 자동 조회가 지원되지 않는 값은 직접 보완",
+      "region_pt": null,
+      "threshold": 0,
+      "max_ratio": null,
+      "seq": 3,
+      "at": "2026-11-08T23:13:51"
+    },
+    "i2": {
+      "check": "차량 크기 입력 방식",
+      "expect": "값 + '수정' 링크(S10 키패드)",
+      "region_pt": null,
+      "threshold": 0,
+      "max_ratio": null,
+      "seq": 4,
+      "at": "2026-11-08T23:13:51"
+    },
+    "i3": {
+      "check": "정보의 출처 머리글",
+      "expect": "높이 · 폭 · 길이 사용자 입력",
+      "region_pt": null,
+      "threshold": 0,
+      "max_ratio": null,
+      "seq": 5,
+      "at": "2026-11-08T23:13:51"
+    },
+    "i4": {
+      "check": "루프박스",
+      "expect": "루프박스 없음 / 변경",
+      "region_pt": null,
+      "threshold": 0,
+      "max_ratio": null,
+      "seq": 6,
+      "at": "2026-11-08T23:13:51"
+    },
+    "i5": {
+      "check": "높이 안내문(주황)",
+      "expect": "제조사 기본 제원과 실제 높이가 다르면 실제 높이를 입력하세요.",
+      "region_pt": null,
+      "threshold": 0,
+      "max_ratio": null,
+      "seq": 7,
+      "at": "2026-11-08T23:13:51"
+    },
+    "i6": {
+      "check": "차종 칩",
+      "expect": "SUV / 기타 / 미확인",
+      "region_pt": null,
+      "threshold": 0,
+      "max_ratio": null,
+      "seq": 8,
+      "at": "2026-11-08T23:13:51"
+    },
+    "i7": {
+      "check": "버튼",
+      "expect": "취소 / 입력값 초기화 / 차량 조건 저장(강조)",
+      "region_pt": null,
+      "threshold": 0,
+      "max_ratio": null,
+      "seq": 9,
+      "at": "2026-11-08T23:13:51"
+    }
+  },
+  "candidate": {
+    "file": "candidate.png",
+    "sha256": "3c4dc4302cb37824481a85f3dde0fbb752740327834ebb30dc2ee1b1d1cc1f9f",
+    "full_sha256": "11a471640a692248c7d678203bffe6689672db80493561be26f6a2184400c3ea",
+    "from": "/Users/devyeom/Developer/02_Side/untilParking/docs/verify/2026-11-08-mock-shots/S08_vehicle.png",
+    "env": {
+      "device": "phone-AVD-wm1600x800-density160",
+      "scale": "1",
+      "locale": "ko",
+      "appearance": "dark"
+    },
+    "size": [
+      1600,
+      800
+    ],
+    "seq": 10,
+    "at": "2026-11-08T23:13:52"
+  },
+  "compare": {
+    "candidate_sha256": "3c4dc4302cb37824481a85f3dde0fbb752740327834ebb30dc2ee1b1d1cc1f9f",
+    "whole": {
+      "same_size": true,
+      "size": [
+        1600,
+        800
+      ],
+      "threshold": 0,
+      "changed_pixels": 1280000,
+      "changed_ratio": 1.0,
+      "mean_delta": 21.906,
+      "max_delta": 239,
+      "bbox_pt": [
+        0.0,
+        0.0,
+        533.3,
+        266.7
+      ]
+    },
+    "items": {},
+    "seq": 11,
+    "at": "2026-11-08T23:13:52"
+  },
+  "results": {
+    "i1": {
+      "verdict": "same",
+      "note": "동일",
+      "candidate_sha256": "3c4dc4302cb37824481a85f3dde0fbb752740327834ebb30dc2ee1b1d1cc1f9f",
+      "seq": 12,
+      "at": "2026-11-08T23:13:52"
+    },
+    "i2": {
+      "verdict": "judge",
+      "note": "의도한 축소(스펙): S10 키패드 미구현, S08 숫자 입력 필드(mm/kg 단위, 시스템 숫자 IME)로 대신",
+      "candidate_sha256": "3c4dc4302cb37824481a85f3dde0fbb752740327834ebb30dc2ee1b1d1cc1f9f",
+      "seq": 13,
+      "at": "2026-11-08T23:13:52",
+      "answer": "intended"
+    },
+    "i3": {
+      "verdict": "same",
+      "note": "구현은 '중량'까지 포함, 설명 문장 추가",
+      "candidate_sha256": "3c4dc4302cb37824481a85f3dde0fbb752740327834ebb30dc2ee1b1d1cc1f9f",
+      "seq": 14,
+      "at": "2026-11-08T23:13:52"
+    },
+    "i4": {
+      "verdict": "same",
+      "note": "있음/없음/미확인 칩으로 표현",
+      "candidate_sha256": "3c4dc4302cb37824481a85f3dde0fbb752740327834ebb30dc2ee1b1d1cc1f9f",
+      "seq": 15,
+      "at": "2026-11-08T23:13:52"
+    },
+    "i5": {
+      "verdict": "same",
+      "note": "동일 + '장착물 높이를 자동으로 더하지 않습니다.' 추가",
+      "candidate_sha256": "3c4dc4302cb37824481a85f3dde0fbb752740327834ebb30dc2ee1b1d1cc1f9f",
+      "seq": 16,
+      "at": "2026-11-08T23:13:52"
+    },
+    "i6": {
+      "verdict": "same",
+      "note": "동일('차종' 라벨 추가)",
+      "candidate_sha256": "3c4dc4302cb37824481a85f3dde0fbb752740327834ebb30dc2ee1b1d1cc1f9f",
+      "seq": 17,
+      "at": "2026-11-08T23:13:52"
+    },
+    "i7": {
+      "verdict": "same",
+      "note": "동일",
+      "candidate_sha256": "3c4dc4302cb37824481a85f3dde0fbb752740327834ebb30dc2ee1b1d1cc1f9f",
+      "seq": 18,
+      "at": "2026-11-08T23:13:52"
+    }
+  },
+  "history": [],
+  "promoted": null,
+  "created": {
+    "seq": 1,
+    "at": "2026-11-08T23:13:51"
+  }
+}

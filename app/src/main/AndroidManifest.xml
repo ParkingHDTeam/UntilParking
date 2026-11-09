@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- 차량용 앱. 폰 에뮬레이터(mock 플레이버)에서도 화면을 확인할 수 있게 지금은 required=false로 둔다. -->
+    <uses-feature android:name="android.hardware.type.automotive" android:required="false" />
+
+    <!-- SDK 권한은 각 data 모듈 매니페스트에 있고 빌드 때 합쳐진다. -->
+
+    <application
+        android:name=".UntilParkingApp"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@android:style/Theme.Material.NoActionBar">
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:screenOrientation="landscape">
+            <!-- AAOS 표준 주행 중 사용 선언(DO). Pleos의 선언 방법은 공개 문서에 없어 사무국 확인 전이다. -->
+            <meta-data
+                android:name="distractionOptimized"
+                android:value="true" />
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>

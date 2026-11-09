@@ -1,0 +1,208 @@
+{
+  "screen": "S03",
+  "level": "full",
+  "scale": 3.0,
+  "pt_only": true,
+  "seq": 22,
+  "source": {
+    "file": "source.png",
+    "sha256": "a3c74e035c38cdd8d9eb79b55f84b8d4c5be66d3678515453cb06658b31ddb3a",
+    "from": "/Users/devyeom/Developer/02_Side/untilParking/docs/verify/2026-11-08-mockups/S03.png",
+    "ref": "기획서 「주차까지 차량용 앱 화면 시안 기획서」 2026-11-01 검토본 시안 PNG 1600×800 · S03.png",
+    "boundary_pt": null,
+    "env": {
+      "device": "design-export",
+      "scale": "1",
+      "locale": "ko",
+      "appearance": "dark"
+    },
+    "size": [
+      1600,
+      800
+    ],
+    "seq": 2,
+    "at": "2026-11-08T23:13:44"
+  },
+  "items": {
+    "i1": {
+      "check": "제목·부제",
+      "expect": "원하는 주차 조건을 선택하세요 / 정차 중 설정 화면 · 적용 전까지 기존 결과 유지",
+      "region_pt": null,
+      "threshold": 0,
+      "max_ratio": null,
+      "seq": 3,
+      "at": "2026-11-08T23:13:44"
+    },
+    "i2": {
+      "check": "세 카드 제목",
+      "expect": "주차 방식 / 차량과 이용 조건 / 정렬과 비용",
+      "region_pt": null,
+      "threshold": 0,
+      "max_ratio": null,
+      "seq": 4,
+      "at": "2026-11-08T23:13:44"
+    },
+    "i3": {
+      "check": "주차 방식 컨트롤",
+      "expect": "칩: 기계식 제외 켜짐(강조) / 방식 미확인 포함(비강조) / 자주식은 기본 포함",
+      "region_pt": null,
+      "threshold": 0,
+      "max_ratio": null,
+      "seq": 5,
+      "at": "2026-11-08T23:13:44"
+    },
+    "i4": {
+      "check": "차량과 이용 조건",
+      "expect": "차량 제한 확인 고정 / 높이 제한 초과 제외 고정 / 잔여 대수 미제공 포함(칩)",
+      "region_pt": null,
+      "threshold": 0,
+      "max_ratio": null,
+      "seq": 6,
+      "at": "2026-11-08T23:13:44"
+    },
+    "i5": {
+      "check": "정렬과 비용",
+      "expect": "거리 가까운 순 선택 / 예상 비용 낮은 순 / 여유 공간 우선 / 예상 주차 시간 1시간",
+      "region_pt": null,
+      "threshold": 0,
+      "max_ratio": null,
+      "seq": 7,
+      "at": "2026-11-08T23:13:44"
+    },
+    "i6": {
+      "check": "카드 하단 캡션",
+      "expect": "터치 또는 음성으로 변경 ×3",
+      "region_pt": null,
+      "threshold": 0,
+      "max_ratio": null,
+      "seq": 8,
+      "at": "2026-11-08T23:13:44"
+    },
+    "i7": {
+      "check": "하단 안내문",
+      "expect": "확인된 차량 제한 위반은 제외하며, 미확인 정보 포함 여부만 변경할 수 있습니다.",
+      "region_pt": null,
+      "threshold": 0,
+      "max_ratio": null,
+      "seq": 9,
+      "at": "2026-11-08T23:13:44"
+    },
+    "i8": {
+      "check": "버튼",
+      "expect": "초기화 / 취소 / 조건 적용하고 다시 보기(강조)",
+      "region_pt": null,
+      "threshold": 0,
+      "max_ratio": null,
+      "seq": 10,
+      "at": "2026-11-08T23:13:44"
+    }
+  },
+  "candidate": {
+    "file": "candidate.png",
+    "sha256": "5dbde0816803137e18e330937758c99dee597f96a254ab262c9aa0cf9f59ba06",
+    "full_sha256": "df64ef32ccec2084eebc73d07a0583a1ef840671d849abc041f8628825f678e2",
+    "from": "/Users/devyeom/Developer/02_Side/untilParking/docs/verify/2026-11-08-mock-shots/S03_conditions.png",
+    "env": {
+      "device": "phone-AVD-wm1600x800-density160",
+      "scale": "1",
+      "locale": "ko",
+      "appearance": "dark"
+    },
+    "size": [
+      1600,
+      800
+    ],
+    "seq": 11,
+    "at": "2026-11-08T23:13:45"
+  },
+  "compare": {
+    "candidate_sha256": "5dbde0816803137e18e330937758c99dee597f96a254ab262c9aa0cf9f59ba06",
+    "whole": {
+      "same_size": true,
+      "size": [
+        1600,
+        800
+      ],
+      "threshold": 0,
+      "changed_pixels": 1280000,
+      "changed_ratio": 1.0,
+      "mean_delta": 24.249,
+      "max_delta": 239,
+      "bbox_pt": [
+        0.0,
+        0.0,
+        533.3,
+        266.7
+      ]
+    },
+    "items": {},
+    "seq": 12,
+    "at": "2026-11-08T23:13:45"
+  },
+  "results": {
+    "i1": {
+      "verdict": "same",
+      "note": "동일",
+      "candidate_sha256": "5dbde0816803137e18e330937758c99dee597f96a254ab262c9aa0cf9f59ba06",
+      "seq": 13,
+      "at": "2026-11-08T23:13:45"
+    },
+    "i2": {
+      "verdict": "same",
+      "note": "동일",
+      "candidate_sha256": "5dbde0816803137e18e330937758c99dee597f96a254ab262c9aa0cf9f59ba06",
+      "seq": 14,
+      "at": "2026-11-08T23:13:45"
+    },
+    "i3": {
+      "verdict": "judge",
+      "note": "사용자 판정: 토글, '방식 미확인 포함' 기본 켜짐 유지",
+      "candidate_sha256": "5dbde0816803137e18e330937758c99dee597f96a254ab262c9aa0cf9f59ba06",
+      "seq": 21,
+      "at": "2026-11-08T23:24:04",
+      "answer": "intended"
+    },
+    "i4": {
+      "verdict": "same",
+      "note": "문구 동일, 컨트롤은 토글",
+      "candidate_sha256": "5dbde0816803137e18e330937758c99dee597f96a254ab262c9aa0cf9f59ba06",
+      "seq": 16,
+      "at": "2026-11-08T23:13:45"
+    },
+    "i5": {
+      "verdict": "same",
+      "note": "동일. 예상 주차 시간은 30분~4시간 칩으로 확장",
+      "candidate_sha256": "5dbde0816803137e18e330937758c99dee597f96a254ab262c9aa0cf9f59ba06",
+      "seq": 17,
+      "at": "2026-11-08T23:13:45"
+    },
+    "i6": {
+      "verdict": "judge",
+      "note": "사용자 판정: 캡션 없이 유지",
+      "candidate_sha256": "5dbde0816803137e18e330937758c99dee597f96a254ab262c9aa0cf9f59ba06",
+      "seq": 22,
+      "at": "2026-11-08T23:24:04",
+      "answer": "intended"
+    },
+    "i7": {
+      "verdict": "same",
+      "note": "동일",
+      "candidate_sha256": "5dbde0816803137e18e330937758c99dee597f96a254ab262c9aa0cf9f59ba06",
+      "seq": 19,
+      "at": "2026-11-08T23:13:46"
+    },
+    "i8": {
+      "verdict": "same",
+      "note": "동일",
+      "candidate_sha256": "5dbde0816803137e18e330937758c99dee597f96a254ab262c9aa0cf9f59ba06",
+      "seq": 20,
+      "at": "2026-11-08T23:13:46"
+    }
+  },
+  "history": [],
+  "promoted": null,
+  "created": {
+    "seq": 1,
+    "at": "2026-11-08T23:13:44"
+  }
+}

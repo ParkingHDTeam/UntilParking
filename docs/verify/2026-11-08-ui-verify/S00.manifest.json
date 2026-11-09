@@ -1,0 +1,176 @@
+{
+  "screen": "S00",
+  "level": "full",
+  "scale": 3.0,
+  "pt_only": true,
+  "seq": 16,
+  "source": {
+    "file": "source.png",
+    "sha256": "3cce65ca6e8a3ae42d6c382138754390dec0714ed0c57e950d6de0323b754efd",
+    "from": "/Users/devyeom/Developer/02_Side/untilParking/docs/verify/2026-11-08-mockups/S00.png",
+    "ref": "기획서 「주차까지 차량용 앱 화면 시안 기획서」 2026-11-01 검토본 시안 PNG 1600×800 · S00.png",
+    "boundary_pt": null,
+    "env": {
+      "device": "design-export",
+      "scale": "1",
+      "locale": "ko",
+      "appearance": "dark"
+    },
+    "size": [
+      1600,
+      800
+    ],
+    "seq": 2,
+    "at": "2026-11-08T23:13:36"
+  },
+  "items": {
+    "i1": {
+      "check": "제목·부제",
+      "expect": "목적지를 먼저 확인하세요 / S00 · 목적지가 없거나 조회에 실패한 경우",
+      "region_pt": null,
+      "threshold": 0,
+      "max_ratio": null,
+      "seq": 3,
+      "at": "2026-11-08T23:13:36"
+    },
+    "i2": {
+      "check": "카드 머리글·첫 문장",
+      "expect": "내비게이션에 목적지를 설정해 주세요. / 설정 후 이 앱으로 돌아와 다시 확인할 수 있습니다.",
+      "region_pt": null,
+      "threshold": 0,
+      "max_ratio": null,
+      "seq": 4,
+      "at": "2026-11-08T23:13:36"
+    },
+    "i3": {
+      "check": "정차 중 직접 검색 안내 문장",
+      "expect": "정차 중에는 목적지를 직접 검색할 수도 있습니다.",
+      "region_pt": null,
+      "threshold": 0,
+      "max_ratio": null,
+      "seq": 5,
+      "at": "2026-11-08T23:13:36"
+    },
+    "i4": {
+      "check": "목적지 직접 검색 버튼",
+      "expect": "카드 안 보조 버튼 있음",
+      "region_pt": null,
+      "threshold": 0,
+      "max_ratio": null,
+      "seq": 6,
+      "at": "2026-11-08T23:13:36"
+    },
+    "i5": {
+      "check": "주 버튼",
+      "expect": "내비 목적지 다시 확인 (우하단 강조)",
+      "region_pt": null,
+      "threshold": 0,
+      "max_ratio": null,
+      "seq": 7,
+      "at": "2026-11-08T23:13:36"
+    },
+    "i6": {
+      "check": "상단 바",
+      "expect": "주차까지 / 음성 / 내 차 설정 / 시각",
+      "region_pt": null,
+      "threshold": 0,
+      "max_ratio": null,
+      "seq": 8,
+      "at": "2026-11-08T23:13:36"
+    }
+  },
+  "candidate": {
+    "file": "candidate.png",
+    "sha256": "9023fa91db2921124172cbe467e99552c2929ac2fe019169a28b85686cbafe5f",
+    "full_sha256": "c56d7006ef8d53d0e3ae6b6a16a3a5f4c2f841689c71d26c586014d818c8128f",
+    "from": "/Users/devyeom/Developer/02_Side/untilParking/docs/verify/2026-11-08-mock-shots/S00_destination_wait.png",
+    "env": {
+      "device": "phone-AVD-wm1600x800-density160",
+      "scale": "1",
+      "locale": "ko",
+      "appearance": "dark"
+    },
+    "size": [
+      1600,
+      800
+    ],
+    "seq": 9,
+    "at": "2026-11-08T23:13:37"
+  },
+  "compare": {
+    "candidate_sha256": "9023fa91db2921124172cbe467e99552c2929ac2fe019169a28b85686cbafe5f",
+    "whole": {
+      "same_size": true,
+      "size": [
+        1600,
+        800
+      ],
+      "threshold": 0,
+      "changed_pixels": 1280000,
+      "changed_ratio": 1.0,
+      "mean_delta": 23.483,
+      "max_delta": 239,
+      "bbox_pt": [
+        0.0,
+        0.0,
+        533.3,
+        266.7
+      ]
+    },
+    "items": {},
+    "seq": 10,
+    "at": "2026-11-08T23:13:37"
+  },
+  "results": {
+    "i1": {
+      "verdict": "same",
+      "note": "문구 동일",
+      "candidate_sha256": "9023fa91db2921124172cbe467e99552c2929ac2fe019169a28b85686cbafe5f",
+      "seq": 11,
+      "at": "2026-11-08T23:13:37"
+    },
+    "i2": {
+      "verdict": "same",
+      "note": "문구 동일",
+      "candidate_sha256": "9023fa91db2921124172cbe467e99552c2929ac2fe019169a28b85686cbafe5f",
+      "seq": 12,
+      "at": "2026-11-08T23:13:37"
+    },
+    "i3": {
+      "verdict": "judge",
+      "note": "의도한 축소(스펙): S00 직접 검색 미구현 → '이 버전에 아직 없습니다'로 대체",
+      "candidate_sha256": "9023fa91db2921124172cbe467e99552c2929ac2fe019169a28b85686cbafe5f",
+      "seq": 13,
+      "at": "2026-11-08T23:13:37",
+      "answer": "intended"
+    },
+    "i4": {
+      "verdict": "judge",
+      "note": "의도한 축소(스펙): S00 직접 검색 미구현, 버튼 없음",
+      "candidate_sha256": "9023fa91db2921124172cbe467e99552c2929ac2fe019169a28b85686cbafe5f",
+      "seq": 14,
+      "at": "2026-11-08T23:13:37",
+      "answer": "intended"
+    },
+    "i5": {
+      "verdict": "same",
+      "note": "문구·위치 동일(폭만 넓음)",
+      "candidate_sha256": "9023fa91db2921124172cbe467e99552c2929ac2fe019169a28b85686cbafe5f",
+      "seq": 15,
+      "at": "2026-11-08T23:13:37"
+    },
+    "i6": {
+      "verdict": "same",
+      "note": "동일",
+      "candidate_sha256": "9023fa91db2921124172cbe467e99552c2929ac2fe019169a28b85686cbafe5f",
+      "seq": 16,
+      "at": "2026-11-08T23:13:37"
+    }
+  },
+  "history": [],
+  "promoted": null,
+  "created": {
+    "seq": 1,
+    "at": "2026-11-08T23:13:36"
+  }
+}

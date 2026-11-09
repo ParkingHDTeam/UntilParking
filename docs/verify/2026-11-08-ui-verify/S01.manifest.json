@@ -1,0 +1,223 @@
+{
+  "screen": "S01",
+  "level": "full",
+  "scale": 3.0,
+  "pt_only": true,
+  "seq": 23,
+  "source": {
+    "file": "source.png",
+    "sha256": "340e0aa10ff6779339f7e6030ed53a7f69c6a9429aa44b0d7d9dcc99c5381cf3",
+    "from": "/Users/devyeom/Developer/02_Side/untilParking/docs/verify/2026-11-08-mockups/S01.png",
+    "ref": "기획서 「주차까지 차량용 앱 화면 시안 기획서」 2026-11-01 검토본 시안 PNG 1600×800 · S01.png",
+    "boundary_pt": null,
+    "env": {
+      "device": "design-export",
+      "scale": "1",
+      "locale": "ko",
+      "appearance": "dark"
+    },
+    "size": [
+      1600,
+      800
+    ],
+    "seq": 2,
+    "at": "2026-11-08T23:13:38"
+  },
+  "items": {
+    "i1": {
+      "check": "제목·부제",
+      "expect": "목적지의 주차 정보를 확인하세요 / 방문 목적지 서림문화센터",
+      "region_pt": null,
+      "threshold": 0,
+      "max_ratio": null,
+      "seq": 3,
+      "at": "2026-11-08T23:13:38"
+    },
+    "i2": {
+      "check": "카드 제목·칩",
+      "expect": "서림문화센터 부설주차장 / 목적지 부설(강조) · 자주식",
+      "region_pt": null,
+      "threshold": 0,
+      "max_ratio": null,
+      "seq": 4,
+      "at": "2026-11-08T23:13:38"
+    },
+    "i3": {
+      "check": "잔여 상태 줄",
+      "expect": "잔여 대수 정보 없음 (주황)",
+      "region_pt": null,
+      "threshold": 0,
+      "max_ratio": null,
+      "seq": 5,
+      "at": "2026-11-08T23:13:38"
+    },
+    "i4": {
+      "check": "높이 제한 줄",
+      "expect": "차량 높이 제한 2.1m · 내 차 높이 1.8m",
+      "region_pt": null,
+      "threshold": 0,
+      "max_ratio": null,
+      "seq": 6,
+      "at": "2026-11-08T23:13:38"
+    },
+    "i5": {
+      "check": "방문객 지원 줄",
+      "expect": "방문객 2시간 지원 · 안내데스크 등록 필요",
+      "region_pt": null,
+      "threshold": 0,
+      "max_ratio": null,
+      "seq": 7,
+      "at": "2026-11-08T23:13:38"
+    },
+    "i6": {
+      "check": "경고 줄(운영 시간·제한 미확인)",
+      "expect": "없음",
+      "region_pt": null,
+      "threshold": 0,
+      "max_ratio": null,
+      "seq": 8,
+      "at": "2026-11-08T23:13:38"
+    },
+    "i7": {
+      "check": "각주",
+      "expect": "주차 지원은 확인된 시설 안내가 있을 때 표시",
+      "region_pt": null,
+      "threshold": 0,
+      "max_ratio": null,
+      "seq": 9,
+      "at": "2026-11-08T23:13:38"
+    },
+    "i8": {
+      "check": "오른쪽 카드",
+      "expect": "방문 목적지는 유지 / 내비게이션의 목적지를 가져왔습니다. / 다른 장소라면 목적지를 다시 확인하세요.",
+      "region_pt": null,
+      "threshold": 0,
+      "max_ratio": null,
+      "seq": 10,
+      "at": "2026-11-08T23:13:38"
+    },
+    "i9": {
+      "check": "하단 버튼 3개",
+      "expect": "주변 주차장 비교 / 음성으로 선택 / 이 주차장 선택(강조)",
+      "region_pt": null,
+      "threshold": 0,
+      "max_ratio": null,
+      "seq": 11,
+      "at": "2026-11-08T23:13:38"
+    }
+  },
+  "candidate": {
+    "file": "candidate.png",
+    "sha256": "d0a7c6e498633744148e991455ed4ad08035e2d31da405164da46fe42f829814",
+    "full_sha256": "0ae1d0f34692ab2853fca0c02204275294799636629373381f7a1b2b3d539edb",
+    "from": "/Users/devyeom/Developer/02_Side/untilParking/docs/verify/2026-11-08-mock-shots/S01_destination_parking.png",
+    "env": {
+      "device": "phone-AVD-wm1600x800-density160",
+      "scale": "1",
+      "locale": "ko",
+      "appearance": "dark"
+    },
+    "size": [
+      1600,
+      800
+    ],
+    "seq": 12,
+    "at": "2026-11-08T23:13:38"
+  },
+  "compare": {
+    "candidate_sha256": "d0a7c6e498633744148e991455ed4ad08035e2d31da405164da46fe42f829814",
+    "whole": {
+      "same_size": true,
+      "size": [
+        1600,
+        800
+      ],
+      "threshold": 0,
+      "changed_pixels": 1280000,
+      "changed_ratio": 1.0,
+      "mean_delta": 25.014,
+      "max_delta": 239,
+      "bbox_pt": [
+        0.0,
+        0.0,
+        533.3,
+        266.7
+      ]
+    },
+    "items": {},
+    "seq": 13,
+    "at": "2026-11-08T23:13:39"
+  },
+  "results": {
+    "i1": {
+      "verdict": "same",
+      "note": "동일",
+      "candidate_sha256": "d0a7c6e498633744148e991455ed4ad08035e2d31da405164da46fe42f829814",
+      "seq": 14,
+      "at": "2026-11-08T23:13:39"
+    },
+    "i2": {
+      "verdict": "same",
+      "note": "동일",
+      "candidate_sha256": "d0a7c6e498633744148e991455ed4ad08035e2d31da405164da46fe42f829814",
+      "seq": 15,
+      "at": "2026-11-08T23:13:39"
+    },
+    "i3": {
+      "verdict": "same",
+      "note": "동일",
+      "candidate_sha256": "d0a7c6e498633744148e991455ed4ad08035e2d31da405164da46fe42f829814",
+      "seq": 16,
+      "at": "2026-11-08T23:13:39"
+    },
+    "i4": {
+      "verdict": "same",
+      "note": "스크린샷은 프로필 미입력 상태라 '내 차 높이 미입력'. 입력 후(S02_after_profile)엔 값이 뜸 — 데이터 상태 차이",
+      "candidate_sha256": "d0a7c6e498633744148e991455ed4ad08035e2d31da405164da46fe42f829814",
+      "seq": 17,
+      "at": "2026-11-08T23:13:39"
+    },
+    "i5": {
+      "verdict": "same",
+      "note": "동일",
+      "candidate_sha256": "d0a7c6e498633744148e991455ed4ad08035e2d31da405164da46fe42f829814",
+      "seq": 18,
+      "at": "2026-11-08T23:13:39"
+    },
+    "i6": {
+      "verdict": "judge",
+      "note": "사용자 판정 2026-11-08: 유지. R1·R6 경고를 S01에도 표시",
+      "candidate_sha256": "d0a7c6e498633744148e991455ed4ad08035e2d31da405164da46fe42f829814",
+      "seq": 23,
+      "at": "2026-11-08T23:24:03",
+      "answer": "intended"
+    },
+    "i7": {
+      "verdict": "same",
+      "note": "동일",
+      "candidate_sha256": "d0a7c6e498633744148e991455ed4ad08035e2d31da405164da46fe42f829814",
+      "seq": 20,
+      "at": "2026-11-08T23:13:39"
+    },
+    "i8": {
+      "verdict": "same",
+      "note": "동일(줄바꿈만 다름)",
+      "candidate_sha256": "d0a7c6e498633744148e991455ed4ad08035e2d31da405164da46fe42f829814",
+      "seq": 21,
+      "at": "2026-11-08T23:13:40"
+    },
+    "i9": {
+      "verdict": "same",
+      "note": "동일",
+      "candidate_sha256": "d0a7c6e498633744148e991455ed4ad08035e2d31da405164da46fe42f829814",
+      "seq": 22,
+      "at": "2026-11-08T23:13:40"
+    }
+  },
+  "history": [],
+  "promoted": null,
+  "created": {
+    "seq": 1,
+    "at": "2026-11-08T23:13:37"
+  }
+}

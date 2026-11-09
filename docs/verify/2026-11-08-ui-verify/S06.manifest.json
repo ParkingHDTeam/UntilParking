@@ -1,0 +1,158 @@
+{
+  "screen": "S06",
+  "level": "full",
+  "scale": 3.0,
+  "pt_only": true,
+  "seq": 14,
+  "source": {
+    "file": "source.png",
+    "sha256": "c882d617297dd1e02bac8cfea923eec9d21f34d46317050487cb368350db50b6",
+    "from": "/Users/devyeom/Developer/02_Side/untilParking/docs/verify/2026-11-08-mockups/S06.png",
+    "ref": "기획서 「주차까지 차량용 앱 화면 시안 기획서」 2026-11-01 검토본 시안 PNG 1600×800 · S06.png",
+    "boundary_pt": null,
+    "env": {
+      "device": "design-export",
+      "scale": "1",
+      "locale": "ko",
+      "appearance": "dark"
+    },
+    "size": [
+      1600,
+      800
+    ],
+    "seq": 2,
+    "at": "2026-11-08T23:13:48"
+  },
+  "items": {
+    "i1": {
+      "check": "제목·부제",
+      "expect": "주차장으로 안내를 시작할까요 / 방문 목적지 서림문화센터 · 변경되는 차량 도착지 주차장 입구",
+      "region_pt": null,
+      "threshold": 0,
+      "max_ratio": null,
+      "seq": 3,
+      "at": "2026-11-08T23:13:48"
+    },
+    "i2": {
+      "check": "왼쪽 카드 본문",
+      "expect": "서림 공영주차장 / 최신 조회 결과를 확인한 뒤 시작하세요. / 잔여 12대 · 수신 · 원본 갱신 시각 미제공(초록) / 방문 목적지는 앱에 유지됩니다. / 경로 변경이 완료되면 내비게이션에서 안내합니다.",
+      "region_pt": null,
+      "threshold": 0,
+      "max_ratio": null,
+      "seq": 4,
+      "at": "2026-11-08T23:13:48"
+    },
+    "i3": {
+      "check": "최종 확인 카드",
+      "expect": "음성 “안내 시작” / 화면 아래 버튼 선택 / 남은 자리는 도착 전에 달라질 수 있습니다.(주황)",
+      "region_pt": null,
+      "threshold": 0,
+      "max_ratio": null,
+      "seq": 5,
+      "at": "2026-11-08T23:13:48"
+    },
+    "i4": {
+      "check": "유효 시간 표시",
+      "expect": "없음",
+      "region_pt": null,
+      "threshold": 0,
+      "max_ratio": null,
+      "seq": 6,
+      "at": "2026-11-08T23:13:48"
+    },
+    "i5": {
+      "check": "버튼",
+      "expect": "취소하고 비교 / 서림 공영으로 안내 시작",
+      "region_pt": null,
+      "threshold": 0,
+      "max_ratio": null,
+      "seq": 7,
+      "at": "2026-11-08T23:13:48"
+    }
+  },
+  "candidate": {
+    "file": "candidate.png",
+    "sha256": "c1c2927c69a0bdc86d8cd0649756022646a608173c78aadafd223ad595cab967",
+    "full_sha256": "3350fce4527b74f10a4095e527bd5f9cdcc580a7a2b29f92006d67e9d97ba849",
+    "from": "/Users/devyeom/Developer/02_Side/untilParking/docs/verify/2026-11-08-mock-shots/S06_confirm.png",
+    "env": {
+      "device": "phone-AVD-wm1600x800-density160",
+      "scale": "1",
+      "locale": "ko",
+      "appearance": "dark"
+    },
+    "size": [
+      1600,
+      800
+    ],
+    "seq": 8,
+    "at": "2026-11-08T23:13:48"
+  },
+  "compare": {
+    "candidate_sha256": "c1c2927c69a0bdc86d8cd0649756022646a608173c78aadafd223ad595cab967",
+    "whole": {
+      "same_size": true,
+      "size": [
+        1600,
+        800
+      ],
+      "threshold": 0,
+      "changed_pixels": 1280000,
+      "changed_ratio": 1.0,
+      "mean_delta": 21.231,
+      "max_delta": 239,
+      "bbox_pt": [
+        0.0,
+        0.0,
+        533.3,
+        266.7
+      ]
+    },
+    "items": {},
+    "seq": 9,
+    "at": "2026-11-08T23:13:48"
+  },
+  "results": {
+    "i1": {
+      "verdict": "same",
+      "note": "동일",
+      "candidate_sha256": "c1c2927c69a0bdc86d8cd0649756022646a608173c78aadafd223ad595cab967",
+      "seq": 10,
+      "at": "2026-11-08T23:13:49"
+    },
+    "i2": {
+      "verdict": "same",
+      "note": "동일",
+      "candidate_sha256": "c1c2927c69a0bdc86d8cd0649756022646a608173c78aadafd223ad595cab967",
+      "seq": 11,
+      "at": "2026-11-08T23:13:49"
+    },
+    "i3": {
+      "verdict": "same",
+      "note": "동일",
+      "candidate_sha256": "c1c2927c69a0bdc86d8cd0649756022646a608173c78aadafd223ad595cab967",
+      "seq": 12,
+      "at": "2026-11-08T23:13:49"
+    },
+    "i4": {
+      "verdict": "same",
+      "note": "구현은 '확인 유효 27초' 추가(R7 30초 유효를 표시). 시안에 없으나 스펙 규칙의 표시",
+      "candidate_sha256": "c1c2927c69a0bdc86d8cd0649756022646a608173c78aadafd223ad595cab967",
+      "seq": 13,
+      "at": "2026-11-08T23:13:49"
+    },
+    "i5": {
+      "verdict": "same",
+      "note": "구현은 전체 이름 '서림 공영주차장으로 안내 시작'",
+      "candidate_sha256": "c1c2927c69a0bdc86d8cd0649756022646a608173c78aadafd223ad595cab967",
+      "seq": 14,
+      "at": "2026-11-08T23:13:49"
+    }
+  },
+  "history": [],
+  "promoted": null,
+  "created": {
+    "seq": 1,
+    "at": "2026-11-08T23:13:48"
+  }
+}

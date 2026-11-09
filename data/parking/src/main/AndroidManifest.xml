@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 서버가 생기면 HTTPS 호출에 쓴다. 지금은 가상 데이터만 있어 네트워크를 쓰지 않는다. -->
+    <uses-permission android:name="android.permission.INTERNET" />
+</manifest>

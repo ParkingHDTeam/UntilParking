@@ -1,0 +1,175 @@
+{
+  "screen": "S07",
+  "level": "full",
+  "scale": 3.0,
+  "pt_only": true,
+  "seq": 17,
+  "source": {
+    "file": "source.png",
+    "sha256": "f7a6055b3139811202df604f074543003bb0a5d59dc3af409ed45b48d29895a9",
+    "from": "/Users/devyeom/Developer/02_Side/untilParking/docs/verify/2026-11-08-mockups/S07.png",
+    "ref": "기획서 「주차까지 차량용 앱 화면 시안 기획서」 2026-11-01 검토본 시안 PNG 1600×800 · S07.png",
+    "boundary_pt": null,
+    "env": {
+      "device": "design-export",
+      "scale": "1",
+      "locale": "ko",
+      "appearance": "dark"
+    },
+    "size": [
+      1600,
+      800
+    ],
+    "seq": 2,
+    "at": "2026-11-08T23:13:49"
+  },
+  "items": {
+    "i1": {
+      "check": "제목·부제",
+      "expect": "선택한 주차장이 만차로 바뀌었어요 / 경로 변경 전 재조회 결과 · 다른 주차장을 선택할 수 있습니다",
+      "region_pt": null,
+      "threshold": 0,
+      "max_ratio": null,
+      "seq": 3,
+      "at": "2026-11-08T23:13:49"
+    },
+    "i2": {
+      "check": "만차 배너",
+      "expect": "서림 공영주차장 잔여 0대 / 현재 안내 요청을 중단했습니다.",
+      "region_pt": null,
+      "threshold": 0,
+      "max_ratio": null,
+      "seq": 4,
+      "at": "2026-11-08T23:13:49"
+    },
+    "i3": {
+      "check": "대체 카드1 문구",
+      "expect": "중앙 노상주차장 / 도보 6분 · 잔여 대수 미제공 · 현장 확인 필요 / 다시 선택",
+      "region_pt": null,
+      "threshold": 0,
+      "max_ratio": null,
+      "seq": 5,
+      "at": "2026-11-08T23:13:49"
+    },
+    "i4": {
+      "check": "대체 카드2 문구",
+      "expect": "문화광장 주차장 / 도보 7분 · 잔여 3대 · 차량 제한 일부 미확인 / 다시 선택",
+      "region_pt": null,
+      "threshold": 0,
+      "max_ratio": null,
+      "seq": 6,
+      "at": "2026-11-08T23:13:49"
+    },
+    "i5": {
+      "check": "안내문",
+      "expect": "통신 실패나 오래된 정보는 만차와 구분하고, 마지막 수신 시각을 함께 표시합니다.",
+      "region_pt": null,
+      "threshold": 0,
+      "max_ratio": null,
+      "seq": 7,
+      "at": "2026-11-08T23:13:50"
+    },
+    "i6": {
+      "check": "버튼",
+      "expect": "조건 변경 / 목록 새로고침(강조)",
+      "region_pt": null,
+      "threshold": 0,
+      "max_ratio": null,
+      "seq": 8,
+      "at": "2026-11-08T23:13:50"
+    }
+  },
+  "candidate": {
+    "file": "candidate.png",
+    "sha256": "910c8376db514a2be88c090b5de170cb84443a4171ff12a31c70ef628c511f45",
+    "full_sha256": "72728dd9e638b6589361574c0e3c4802e1c0e7deaae0192f430208b333bf330f",
+    "from": "/Users/devyeom/Developer/02_Side/untilParking/docs/verify/2026-11-08-mock-shots/S07_alternatives.png",
+    "env": {
+      "device": "phone-AVD-wm1600x800-density160",
+      "scale": "1",
+      "locale": "ko",
+      "appearance": "dark"
+    },
+    "size": [
+      1600,
+      800
+    ],
+    "seq": 9,
+    "at": "2026-11-08T23:13:50"
+  },
+  "compare": {
+    "candidate_sha256": "910c8376db514a2be88c090b5de170cb84443a4171ff12a31c70ef628c511f45",
+    "whole": {
+      "same_size": true,
+      "size": [
+        1600,
+        800
+      ],
+      "threshold": 0,
+      "changed_pixels": 1279992,
+      "changed_ratio": 0.999994,
+      "mean_delta": 25.727,
+      "max_delta": 241,
+      "bbox_pt": [
+        0.0,
+        0.0,
+        533.3,
+        266.7
+      ]
+    },
+    "items": {},
+    "seq": 10,
+    "at": "2026-11-08T23:13:50"
+  },
+  "results": {
+    "i1": {
+      "verdict": "same",
+      "note": "동일",
+      "candidate_sha256": "910c8376db514a2be88c090b5de170cb84443a4171ff12a31c70ef628c511f45",
+      "seq": 11,
+      "at": "2026-11-08T23:13:50"
+    },
+    "i2": {
+      "verdict": "same",
+      "note": "동일",
+      "candidate_sha256": "910c8376db514a2be88c090b5de170cb84443a4171ff12a31c70ef628c511f45",
+      "seq": 12,
+      "at": "2026-11-08T23:13:50"
+    },
+    "i3": {
+      "verdict": "judge",
+      "note": "사용자 판정: 구현 문구 유지",
+      "candidate_sha256": "910c8376db514a2be88c090b5de170cb84443a4171ff12a31c70ef628c511f45",
+      "seq": 17,
+      "at": "2026-11-08T23:24:04",
+      "answer": "intended"
+    },
+    "i4": {
+      "verdict": "same",
+      "note": "거리만 직선 m(의도한 축소)",
+      "candidate_sha256": "910c8376db514a2be88c090b5de170cb84443a4171ff12a31c70ef628c511f45",
+      "seq": 14,
+      "at": "2026-11-08T23:13:50"
+    },
+    "i5": {
+      "verdict": "same",
+      "note": "동일",
+      "candidate_sha256": "910c8376db514a2be88c090b5de170cb84443a4171ff12a31c70ef628c511f45",
+      "seq": 15,
+      "at": "2026-11-08T23:13:51"
+    },
+    "i6": {
+      "verdict": "same",
+      "note": "동일",
+      "candidate_sha256": "910c8376db514a2be88c090b5de170cb84443a4171ff12a31c70ef628c511f45",
+      "seq": 16,
+      "at": "2026-11-08T23:13:51"
+    }
+  },
+  "history": [],
+  "promoted": null,
+  "created": {
+    "seq": 1,
+    "at": "2026-11-08T23:13:49"
+  }
+}

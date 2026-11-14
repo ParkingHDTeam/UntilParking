@@ -4,6 +4,7 @@ import ai.pleos.playground.navi.constants.NaviErrorCode
 import ai.pleos.playground.navi.data.DestinationInfo
 import ai.pleos.playground.navi.data.NavigationScreenRequest
 import ai.pleos.playground.navi.data.RouteInfo
+import ai.pleos.playground.navi.data.RouteStartInfo
 import ai.pleos.playground.navi.helper.NaviHelper
 import ai.pleos.playground.navi.helper.listener.NaviHelperEventListener
 import android.content.Context
@@ -45,12 +46,19 @@ class NaviHelperNavigationRepository(context: Context) : NavigationRepository {
             destinationState.value = destinationInfo.toDomain()
         }
 
+        // 내비 "안내 시작"은 onDestinationChanged를 보내지 않고 경로 탐색 이벤트만 보낸다(2026-11-12 에뮬레이터 로그).
+        // 그래서 경로 탐색이 시작·완료될 때 목적지를 다시 묻는다(스펙 R7 아래 이벤트 표).
+        override fun onRouteStarted(routeStartInfo: RouteStartInfo) {
+            requestDestinationInfo()
+        }
+
         override fun onRouteCancelled() {
             destinationState.value = null
         }
 
+        // SDK 주석상 "경로 탐색 완료"다. 안내 종료가 아니므로 목적지를 지우지 않는다.
         override fun onRouteEnded() {
-            destinationState.value = null
+            requestDestinationInfo()
         }
 
         override fun onRoutingCompleted() {
@@ -135,14 +143,20 @@ class NaviHelperNavigationRepository(context: Context) : NavigationRepository {
         }
     }
 
-    private fun DestinationInfo.toDomain() = Destination(
-        id = "navi:$latitude,$longitude",
-        name = name,
-        location = GeoPoint(latitude, longitude),
-        source = DestinationSource.NAVI,
-        // remainTime은 초 단위(API 레퍼런스)
-        etaAt = Instant.now().plusSeconds(remainTime.toLong()),
-    )
+    /**
+     * 목적지가 없으면 내비가 (0, 0)·빈 이름을 보낸다(2026-11-09 에뮬레이터 로그). 그 값은 목적지 없음(S00, 스펙 T01)이다.
+     */
+    private fun DestinationInfo.toDomain(): Destination? {
+        if (latitude == 0.0 && longitude == 0.0) return null
+        return Destination(
+            id = "navi:$latitude,$longitude",
+            name = name,
+            location = GeoPoint(latitude, longitude),
+            source = DestinationSource.NAVI,
+            // remainTime은 초 단위(API 레퍼런스)
+            etaAt = Instant.now().plusSeconds(remainTime.toLong()),
+        )
+    }
 
     private companion object {
         const val REQUEST_TIMEOUT_MS = 15_000L

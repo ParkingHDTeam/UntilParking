@@ -1,3 +1,4 @@
+import com.android.build.api.variant.ResValue
 import java.util.Properties
 
 plugins {
@@ -55,6 +56,19 @@ android {
     buildFeatures {
         compose = true
         buildConfig = true
+        // AGP 9부터 기본 꺼짐. 아래 androidComponents가 app_name을 만들 때 쓴다
+        resValues = true
+    }
+}
+
+// 기기에 깔린 변형을 런처에서 구분하도록 앱 이름 뒤에 mock 여부와 빌드 타입을 붙인다(예: "주차까지 mock debug")
+androidComponents {
+    onVariants { variant ->
+        val tags = listOfNotNull("mock".takeIf { variant.flavorName == "mock" }, variant.buildType)
+        variant.resValues.put(
+            variant.makeResValueKey("string", "app_name"),
+            ResValue((listOf("주차까지") + tags).joinToString(" ")),
+        )
     }
 }
 

@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">주차까지</string>
+    <!-- app_name은 변형마다 이름이 달라서 app/build.gradle.kts의 androidComponents 블록이 만든다 -->
 </resources>

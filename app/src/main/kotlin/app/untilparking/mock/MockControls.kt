@@ -11,6 +11,8 @@ import kotlinx.coroutines.flow.flowOf
 interface MockControls {
     val available: Boolean
     val spoken: Flow<String?>
+    /** 목적지 직접 검색으로 내비 장소 검색을 연 키워드(mock은 내비가 없어 띠에 보인다). */
+    val placeSearch: Flow<String?>
     fun setDriving(state: DrivingState)
     fun setDestinationPresent(present: Boolean)
     fun setForcedFull(parkingId: String, full: Boolean)
@@ -20,6 +22,7 @@ interface MockControls {
 object NoMockControls : MockControls {
     override val available: Boolean = false
     override val spoken: Flow<String?> = flowOf(null)
+    override val placeSearch: Flow<String?> = flowOf(null)
     override fun setDriving(state: DrivingState) = Unit
     override fun setDestinationPresent(present: Boolean) = Unit
     override fun setForcedFull(parkingId: String, full: Boolean) = Unit

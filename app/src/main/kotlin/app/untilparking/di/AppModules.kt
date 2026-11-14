@@ -14,6 +14,7 @@ import app.untilparking.domain.usecase.ExpandRadius
 import app.untilparking.domain.usecase.JudgeAvailability
 import app.untilparking.domain.usecase.JudgeEligibility
 import app.untilparking.domain.usecase.Listen
+import app.untilparking.domain.usecase.OpenDestinationSearch
 import app.untilparking.domain.usecase.ObserveDestination
 import app.untilparking.domain.usecase.ObserveDrivingState
 import app.untilparking.domain.usecase.ObserveVehicleProfile
@@ -33,6 +34,7 @@ import app.untilparking.usecase.ExpandRadiusImpl
 import app.untilparking.usecase.JudgeAvailabilityImpl
 import app.untilparking.usecase.JudgeEligibilityImpl
 import app.untilparking.usecase.ListenImpl
+import app.untilparking.usecase.OpenDestinationSearchImpl
 import app.untilparking.usecase.ObserveDestinationImpl
 import app.untilparking.usecase.ObserveDrivingStateImpl
 import app.untilparking.usecase.ObserveVehicleProfileImpl
@@ -95,6 +97,7 @@ object UseCaseModule {
     @Provides fun requestGuidance(nav: NavigationRepository): RequestGuidance = RequestGuidanceImpl(nav)
     @Provides fun observeDestination(nav: NavigationRepository): ObserveDestination = ObserveDestinationImpl(nav)
     @Provides fun refreshDestination(nav: NavigationRepository): RefreshDestination = RefreshDestinationImpl(nav)
+    @Provides fun openDestinationSearch(nav: NavigationRepository): OpenDestinationSearch = OpenDestinationSearchImpl(nav)
     @Provides fun observeDriving(driving: DrivingStateRepository): ObserveDrivingState = ObserveDrivingStateImpl(driving)
     @Provides fun observeVehicle(vehicle: VehicleProfileRepository): ObserveVehicleProfile = ObserveVehicleProfileImpl(vehicle)
     @Provides fun saveVehicle(vehicle: VehicleProfileRepository): SaveVehicleProfile = SaveVehicleProfileImpl(vehicle)

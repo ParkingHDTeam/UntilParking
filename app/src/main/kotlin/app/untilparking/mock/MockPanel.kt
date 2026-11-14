@@ -39,6 +39,7 @@ fun MockPanel(controls: MockControls) {
     var full by remember { mutableStateOf(false) }
     var voiceText by remember { mutableStateOf("") }
     val spoken by controls.spoken.collectAsState(initial = null)
+    val placeSearch by controls.placeSearch.collectAsState(initial = null)
 
     Surface(color = Color(0xFF2B1F3F), modifier = Modifier.fillMaxWidth()) {
         Column(Modifier.padding(horizontal = 12.dp, vertical = 4.dp)) {
@@ -46,6 +47,7 @@ fun MockPanel(controls: MockControls) {
                 Text("MOCK 환경", fontSize = 12.sp, fontWeight = FontWeight.Bold, color = Color(0xFFD9B8FF))
                 Spacer(Modifier.width(12.dp))
                 Text(spoken?.let { "TTS: $it" } ?: "TTS 대기", fontSize = 12.sp, color = Color(0xFFBFB5CC), modifier = Modifier.weight(1f))
+                placeSearch?.let { Text("내비 검색(가상): ${it.ifEmpty { "빈 검색" }}", fontSize = 12.sp, color = Color(0xFFD9B8FF)) }
                 TextButton(onClick = { open = !open }) { Text(if (open) "접기" else "펼치기", fontSize = 12.sp) }
             }
             if (open) {

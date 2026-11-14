@@ -2,6 +2,7 @@ package app.untilparking.data.navi
 
 import ai.pleos.playground.navi.constants.NaviErrorCode
 import ai.pleos.playground.navi.data.DestinationInfo
+import ai.pleos.playground.navi.data.NavigationScreenRequest
 import ai.pleos.playground.navi.data.RouteInfo
 import ai.pleos.playground.navi.helper.NaviHelper
 import ai.pleos.playground.navi.helper.listener.NaviHelperEventListener
@@ -121,6 +122,16 @@ class NaviHelperNavigationRepository(context: Context) : NavigationRepository {
                 }
                 if (applied != null) RouteRequestResult.Success else RouteRequestResult.Unknown
             }
+        }
+    }
+
+    /** 목적지 검색 스펙 D1. 검색 결과는 앱에 오지 않는다. 사용자가 내비에서 고르면 onDestinationChanged로 온다. */
+    override fun openPlaceSearch(keyword: String) {
+        try {
+            naviHelper.requestNavigationScreen(NavigationScreenRequest.SearchPlace(keyword))
+        } catch (e: SecurityException) {
+            // SDK가 NAVI_CUSTOM_MAP 권한을 먼저 확인한다. 연결 전이면 SDK가 연결한 뒤 보낸다(SDK 3.0.5 소스)
+            throw AppError.NavigationFailed("장소 검색 권한 없음", e)
         }
     }
 

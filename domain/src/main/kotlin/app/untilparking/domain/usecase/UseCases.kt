@@ -4,6 +4,7 @@ import app.untilparking.domain.model.Availability
 import app.untilparking.domain.model.AvailabilityReading
 import app.untilparking.domain.model.Destination
 import app.untilparking.domain.model.DestinationChange
+import app.untilparking.domain.model.DestinationSearchResult
 import app.untilparking.domain.model.DrivingState
 import app.untilparking.domain.model.Eligibility
 import app.untilparking.domain.model.FeeEstimate
@@ -117,4 +118,9 @@ fun interface Speak {
 
 fun interface Listen {
     suspend operator fun invoke(): String?
+}
+
+/** 목적지 검색 스펙 D1: 들은 말을 키워드로 다듬어 내비 장소 검색을 연다. 묻기·듣기는 화면이 Speak·Listen으로 한다. */
+fun interface OpenDestinationSearch {
+    operator fun invoke(heard: String?, driving: DrivingState): DestinationSearchResult
 }

@@ -23,6 +23,12 @@ interface NavigationRepository {
      * 내비 오류는 Failed, 15초 무응답은 Unknown(스펙 R7).
      */
     suspend fun requestRoute(parking: ParkingFacility): RouteRequestResult
+
+    /**
+     * 내비의 장소 검색 화면을 키워드로 연다(목적지 검색 스펙 D1). 고른 장소는 destination으로 온다.
+     * 열지 못하면 AppError.NavigationFailed.
+     */
+    fun openPlaceSearch(keyword: String)
 }
 
 /** 구현: data:driving (AAOS CarUxRestrictions). */

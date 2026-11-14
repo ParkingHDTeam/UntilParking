@@ -30,6 +30,7 @@ class MockEnvironment(private val parking: SampleParkingRepository) :
     private val drivingState = MutableStateFlow(DrivingState.PARKED)
     private val utterances = MutableSharedFlow<String>(extraBufferCapacity = 1)
     private val spokenState = MutableStateFlow<String?>(null)
+    private val placeSearchState = MutableStateFlow<String?>(null)
 
     // NavigationRepository
     override val destination: Flow<Destination?> = combine(destinationPresent, routedTo) { present, routed ->
@@ -49,6 +50,11 @@ class MockEnvironment(private val parking: SampleParkingRepository) :
         return RouteRequestResult.Success
     }
 
+    // 내비가 없으니 키워드만 남긴다. 목적지는 띠의 "내비 목적지 있음"으로 바꾼다(목적지 검색 스펙 D1)
+    override fun openPlaceSearch(keyword: String) {
+        placeSearchState.value = keyword
+    }
+
     // DrivingStateRepository
     override val state: Flow<DrivingState> = drivingState
 
@@ -63,6 +69,7 @@ class MockEnvironment(private val parking: SampleParkingRepository) :
     // MockControls
     override val available: Boolean = true
     override val spoken: Flow<String?> = spokenState
+    override val placeSearch: Flow<String?> = placeSearchState
     override fun setDriving(state: DrivingState) { drivingState.value = state }
     override fun setDestinationPresent(present: Boolean) {
         destinationPresent.value = present

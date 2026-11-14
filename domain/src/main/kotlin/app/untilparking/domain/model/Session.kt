@@ -56,3 +56,12 @@ sealed interface VoiceCommand {
     data object Cancel : VoiceCommand
     data object Unclear : VoiceCommand
 }
+
+/** 목적지 직접 검색 결과(목적지 검색 스펙 D1). */
+sealed interface DestinationSearchResult {
+    /** 내비 장소 검색 화면을 이 키워드로 열었다. 빈 문자열이면 빈 검색 화면이다. */
+    data class Opened(val keyword: String) : DestinationSearchResult
+    data object Cancelled : DestinationSearchResult
+    /** 정차 중이 아니라 열지 않았다(R9). */
+    data object Blocked : DestinationSearchResult
+}

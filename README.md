@@ -38,7 +38,8 @@ Pleos Connect 에뮬레이터는 Android Studio 안에서 도는 차량(AAOS) �
 | Pleos Connect 에뮬레이터 | 이 맥(M1 Max)에서 부팅 15초 뒤 멈추는 문제가 미해결이라 pleos 플레이버는 미확인 |
 | 서버 v1 API | 없음. 규칙은 클라이언트(usecase)가 계산하고 데이터는 가상이다 |
 | 공공 주차장 API | pleos 플레이버에 전국주차장정보표준데이터 어댑터를 붙였다(전국 데이터를 받아 기기에 30일 저장, 반경 검색은 기기에서). 2026-11-09 Pleos 에뮬레이터에서 확인: 18,994건 19쪽을 약 10초에 받아 11.6MB로 저장, 내비 목적지 "송정역 5호선" 반경 1km에 신방화역(782m)이 나온다. 서울은 표준데이터 등록 건수가 적어 반경 500m 결과가 없을 수 있다. 규칙은 [docs/specs/public-parking-data.md](docs/specs/public-parking-data.md). 2026-11-14 실시간 잔여 출처(부산시설공단·대전·한국교통안전공단)를 붙였다. 표준데이터 시설과 짝이 맞는 곳에만 남은 자리가 나온다(교통안전공단 290곳, 대전 4곳, 부산 0곳). 규칙은 [docs/specs/realtime-availability.md](docs/specs/realtime-availability.md). TourAPI는 미연결 |
-| 화면 S04·S09·S10·S12·S13·S14, S00 직접 검색 | 미구현 |
+| 화면 S04·S09·S10·S12·S13·S14 | 미구현 |
+| S00 목적지 직접 검색 | 2026-11-09 추가. 버튼 → "어디로 갈까요?" → 들은 말로 내비 장소 검색 화면을 연다(정차 중만). 단위 테스트 6개 통과, Pleos 에뮬레이터 실제 동작과 시안 대조는 확인 전. 규칙은 [docs/specs/destination-search.md](docs/specs/destination-search.md) |
 
 ## 구조
 

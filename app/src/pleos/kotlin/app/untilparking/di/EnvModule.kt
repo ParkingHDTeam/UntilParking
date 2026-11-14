@@ -3,6 +3,7 @@ package app.untilparking.di
 import android.content.Context
 import app.untilparking.BuildConfig
 import app.untilparking.data.driving.CarUxDrivingStateRepository
+import app.untilparking.data.parking.FileCongestionRepository
 import app.untilparking.data.navi.NaviHelperNavigationRepository
 import app.untilparking.data.parking.HttpPublicParkingApi
 import app.untilparking.data.parking.HttpTextFetcher
@@ -10,6 +11,7 @@ import app.untilparking.data.parking.PublicParkingRepository
 import app.untilparking.data.parking.RealtimeAvailability
 import app.untilparking.data.parking.RealtimeSources
 import app.untilparking.data.voice.PleosVoiceRepository
+import app.untilparking.domain.repository.CongestionRepository
 import app.untilparking.domain.repository.DrivingStateRepository
 import app.untilparking.domain.repository.NavigationRepository
 import app.untilparking.domain.repository.ParkingRepository
@@ -53,6 +55,10 @@ object EnvModule {
             clock,
         ),
     )
+
+    /** 공용 저장소가 없어 이 기기에서 남긴 입력만 보인다(혼잡도 스펙 C5). */
+    @Provides
+    fun congestion(device: FileCongestionRepository): CongestionRepository = device
 
     @Provides
     fun controls(): MockControls = NoMockControls

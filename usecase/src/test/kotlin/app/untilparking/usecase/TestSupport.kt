@@ -4,6 +4,8 @@ import app.untilparking.domain.AppError
 import app.untilparking.domain.model.Availability
 import app.untilparking.domain.model.AvailabilityReading
 import app.untilparking.domain.model.AvailabilityStatus
+import app.untilparking.domain.model.CongestionLevel
+import app.untilparking.domain.model.CongestionReport
 import app.untilparking.domain.model.Destination
 import app.untilparking.domain.model.DestinationParkingLink
 import app.untilparking.domain.model.DestinationSource
@@ -29,6 +31,7 @@ import app.untilparking.domain.model.SuvFlag
 import app.untilparking.domain.model.VehicleProfile
 import app.untilparking.domain.model.WeightBasis
 import app.untilparking.domain.model.distanceMetersTo
+import app.untilparking.domain.repository.CongestionRepository
 import app.untilparking.domain.repository.ParkingRepository
 import java.time.Clock
 import java.time.Duration
@@ -142,5 +145,25 @@ class FakeParkingRepository(
     override suspend fun availability(parkingId: String): AvailabilityReading? {
         if (parkingId in failIds) throw AppError.ParkingSourceFailed("503")
         return readings[parkingId]
+    }
+}
+
+/** 입력 하나를 "몇 분 전"으로 만든다. */
+fun report(parkingId: String, level: CongestionLevel, ageMinutes: Long = 0) =
+    CongestionReport(parkingId, level, NOW.minus(Duration.ofMinutes(ageMinutes)))
+
+class FakeCongestionRepository(
+    initial: List<CongestionReport> = emptyList(),
+    private val failRead: Boolean = false,
+) : CongestionRepository {
+    val saved = initial.toMutableList()
+
+    override suspend fun reports(parkingId: String): List<CongestionReport> {
+        if (failRead) throw AppError.CongestionFailed("503")
+        return saved.filter { it.parkingId == parkingId }
+    }
+
+    override suspend fun submit(report: CongestionReport) {
+        saved += report
     }
 }

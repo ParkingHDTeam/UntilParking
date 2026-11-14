@@ -1,6 +1,7 @@
 package app.untilparking.domain.repository
 
 import app.untilparking.domain.model.AvailabilityReading
+import app.untilparking.domain.model.CongestionReport
 import app.untilparking.domain.model.Destination
 import app.untilparking.domain.model.DestinationParkingLink
 import app.untilparking.domain.model.DrivingState
@@ -72,4 +73,13 @@ interface DestinationAlertRepository {
 
     /** 떠 있는 알림을 지운다. 없으면 아무 일도 없다. */
     fun clear()
+}
+
+/** 구현: data:parking (지금은 기기 파일, 서버가 생기면 공용 저장소). 혼잡도 스펙 C5. */
+interface CongestionRepository {
+    /** 그 주차장에 남은 입력 전부. 시간 창은 유스케이스가 자른다. 읽지 못하면 AppError.CongestionFailed. */
+    suspend fun reports(parkingId: String): List<CongestionReport>
+
+    /** 입력 하나를 더한다. 저장하지 못하면 AppError.CongestionFailed. */
+    suspend fun submit(report: CongestionReport)
 }

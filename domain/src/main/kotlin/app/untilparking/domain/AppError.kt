@@ -5,4 +5,5 @@ sealed class AppError(message: String, cause: Throwable? = null) : Exception(mes
     class NavigationFailed(reason: String, cause: Throwable? = null) : AppError("내비 요청 실패: $reason", cause)
     class ParkingSourceFailed(reason: String, cause: Throwable? = null) : AppError("주차장 정보 조회 실패: $reason", cause)
     class VoiceFailed(reason: String, cause: Throwable? = null) : AppError("음성 처리 실패: $reason", cause)
+    class CongestionFailed(reason: String, cause: Throwable? = null) : AppError("혼잡도 처리 실패: $reason", cause)
 }

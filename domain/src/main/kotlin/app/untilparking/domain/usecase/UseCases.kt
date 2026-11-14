@@ -1,7 +1,11 @@
 package app.untilparking.domain.usecase
 
+import app.untilparking.domain.model.ArrivalPrompt
 import app.untilparking.domain.model.Availability
 import app.untilparking.domain.model.AvailabilityReading
+import app.untilparking.domain.model.Congestion
+import app.untilparking.domain.model.CongestionLevel
+import app.untilparking.domain.model.CongestionReport
 import app.untilparking.domain.model.Destination
 import app.untilparking.domain.model.DestinationChange
 import app.untilparking.domain.model.DestinationSearchResult
@@ -13,6 +17,7 @@ import app.untilparking.domain.model.GeoPoint
 import app.untilparking.domain.model.Page
 import app.untilparking.domain.model.ParkingCandidate
 import app.untilparking.domain.model.ParkingFacility
+import app.untilparking.domain.model.PendingArrival
 import app.untilparking.domain.model.Recheck
 import app.untilparking.domain.model.RouteRequestResult
 import app.untilparking.domain.model.SearchConditions
@@ -133,4 +138,24 @@ fun interface AlertNewDestination {
 /** 목적지 알림 스펙 N1: 앱이 화면에 오면 떠 있는 알림을 지운다. */
 fun interface DismissDestinationAlert {
     operator fun invoke()
+}
+
+/** 혼잡도 스펙 C4: 최근 2시간 입력의 평균. 입력이 없으면 null. */
+fun interface SummarizeCongestion {
+    operator fun invoke(reports: List<CongestionReport>, now: Instant): Congestion?
+}
+
+/** 혼잡도 스펙 C1: 내비 목적지가 없어진 것이 도착인가. guiding은 그 줄이 "안내 중"인 주차장, 없으면 null. change는 R7 분류 결과다. */
+fun interface DetectArrival {
+    operator fun invoke(change: DestinationChange, next: Destination?, guiding: ParkingFacility?, now: Instant): PendingArrival?
+}
+
+/** 혼잡도 스펙 C2: 도착 후보를 두고 지금 물을지. */
+fun interface JudgeArrivalPrompt {
+    operator fun invoke(pending: PendingArrival, driving: DrivingState, now: Instant): ArrivalPrompt
+}
+
+/** 혼잡도 스펙 C3: 고른 값을 지금 시각으로 저장한다. */
+fun interface ReportCongestion {
+    suspend operator fun invoke(parkingId: String, level: CongestionLevel)
 }

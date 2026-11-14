@@ -15,7 +15,7 @@ class RecheckTest {
     private val conditions = SearchConditions()
 
     private fun recheck(repo: FakeParkingRepository) =
-        RecheckParkingImpl(repo, JudgeEligibilityImpl(), JudgeAvailabilityImpl(), EstimateFeeImpl(SEOUL), fixedClock())
+        RecheckParkingImpl(repo, JudgeEligibilityImpl(), JudgeAvailabilityImpl(), EstimateFeeImpl(SEOUL), FakeCongestionRepository(), SummarizeCongestionImpl(), fixedClock())
 
     @Test
     fun `신선한 0대면 FULL`() = runTest {

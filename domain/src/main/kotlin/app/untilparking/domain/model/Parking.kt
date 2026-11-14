@@ -132,6 +132,8 @@ data class ParkingCandidate(
     val availability: Availability,
     val link: DestinationParkingLink? = null,
     val operating: OperatingStatus = OperatingStatus.UNKNOWN,
+    /** 최근 입력의 평균 혼잡도. 입력이 없거나 읽지 못했으면 null(혼잡도 스펙 C4). */
+    val congestion: Congestion? = null,
 )
 
 enum class RecheckStatus { READY, FULL, BLOCKED, UNKNOWN }

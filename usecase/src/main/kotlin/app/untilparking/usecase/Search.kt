@@ -19,6 +19,7 @@ import app.untilparking.domain.model.SearchResult
 import app.untilparking.domain.model.VehicleProfile
 import app.untilparking.domain.model.distanceMetersTo
 import app.untilparking.domain.model.scheduleOn
+import app.untilparking.domain.repository.CongestionRepository
 import app.untilparking.domain.repository.ParkingRepository
 import app.untilparking.domain.usecase.EstimateFee
 import app.untilparking.domain.usecase.JudgeAvailability
@@ -26,6 +27,7 @@ import app.untilparking.domain.usecase.JudgeEligibility
 import app.untilparking.domain.usecase.RecheckParking
 import app.untilparking.domain.usecase.SearchParking
 import app.untilparking.domain.usecase.SelectCandidates
+import app.untilparking.domain.usecase.SummarizeCongestion
 import java.time.Clock
 import java.time.Instant
 import java.time.temporal.ChronoUnit
@@ -37,6 +39,8 @@ internal class CandidateBuilder(
     private val judgeEligibility: JudgeEligibility,
     private val judgeAvailability: JudgeAvailability,
     private val estimateFee: EstimateFee,
+    private val congestionRepo: CongestionRepository,
+    private val summarizeCongestion: SummarizeCongestion,
     private val clock: Clock,
 ) {
     suspend fun build(
@@ -55,6 +59,12 @@ internal class CandidateBuilder(
         } catch (e: AppError) {
             Availability(AvailabilityStatus.ERROR)
         }
+        // 혼잡도를 못 읽어도 목록은 보여 준다(혼잡도 스펙 C4)
+        val congestion = try {
+            summarizeCongestion(congestionRepo.reports(facility.id), now)
+        } catch (e: AppError) {
+            null
+        }
         return ParkingCandidate(
             parking = facility,
             eligibility = judgeEligibility(facility, profile, now.atZone(clock.zone).toLocalDate()),
@@ -65,6 +75,7 @@ internal class CandidateBuilder(
             link = link,
             // 도착 예정일 요일의 운영 시간(공공 데이터 스펙 P3)
             operating = operatingStatus(facility.scheduleOn(startAt.atZone(clock.zone).dayOfWeek), startAt, endAt),
+            congestion = congestion,
         )
     }
 
@@ -87,10 +98,12 @@ class SearchParkingImpl(
     judgeAvailability: JudgeAvailability,
     estimateFee: EstimateFee,
     private val select: SelectCandidates,
+    congestionRepo: CongestionRepository,
+    summarizeCongestion: SummarizeCongestion,
     clock: Clock,
 ) : SearchParking {
 
-    private val builder = CandidateBuilder(repo, judgeEligibility, judgeAvailability, estimateFee, clock)
+    private val builder = CandidateBuilder(repo, judgeEligibility, judgeAvailability, estimateFee, congestionRepo, summarizeCongestion, clock)
 
     override suspend fun invoke(destination: Destination, conditions: SearchConditions, profile: VehicleProfile): SearchResult {
         val links = repo.linkedParking(destination)
@@ -109,10 +122,12 @@ class RecheckParkingImpl(
     judgeEligibility: JudgeEligibility,
     judgeAvailability: JudgeAvailability,
     estimateFee: EstimateFee,
+    congestionRepo: CongestionRepository,
+    summarizeCongestion: SummarizeCongestion,
     private val clock: Clock,
 ) : RecheckParking {
 
-    private val builder = CandidateBuilder(repo, judgeEligibility, judgeAvailability, estimateFee, clock)
+    private val builder = CandidateBuilder(repo, judgeEligibility, judgeAvailability, estimateFee, congestionRepo, summarizeCongestion, clock)
 
     override suspend fun invoke(
         candidate: ParkingCandidate,

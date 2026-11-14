@@ -1,15 +1,19 @@
 package app.untilparking.usecase
 
 import app.untilparking.domain.model.AvailabilityStatus
+import app.untilparking.domain.model.Congestion
+import app.untilparking.domain.model.CongestionLevel
 import app.untilparking.domain.model.DestinationParkingLink
 import app.untilparking.domain.model.DistanceKind
 import app.untilparking.domain.model.LinkType
 import app.untilparking.domain.model.OperatingSchedule
 import app.untilparking.domain.model.OperatingStatus
 import app.untilparking.domain.model.SearchConditions
+import app.untilparking.domain.model.SortKey
 import kotlinx.coroutines.test.runTest
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNotNull
+import org.junit.Assert.assertNull
 import org.junit.Assert.assertTrue
 import org.junit.Test
 import java.time.Duration
@@ -18,8 +22,8 @@ import java.time.LocalTime
 /** 스펙 R2 검색 범위, R6 시간, 후보 조립 (기획서 15·19절). */
 class SearchParkingTest {
 
-    private fun search(repo: FakeParkingRepository) = SearchParkingImpl(
-        repo, JudgeEligibilityImpl(), JudgeAvailabilityImpl(), EstimateFeeImpl(SEOUL), SelectCandidatesImpl(), fixedClock(),
+    private fun search(repo: FakeParkingRepository, congestion: FakeCongestionRepository = FakeCongestionRepository()) = SearchParkingImpl(
+        repo, JudgeEligibilityImpl(), JudgeAvailabilityImpl(), EstimateFeeImpl(SEOUL), SelectCandidatesImpl(), congestion, SummarizeCongestionImpl(), fixedClock(),
     )
 
     @Test
@@ -142,5 +146,34 @@ class SearchParkingTest {
         val repo = FakeParkingRepository(listOf(facility("a")))
         val eligibility = search(repo)(DEST, SearchConditions(), profile(height = 1800)).candidates.single().eligibility
         assertEquals(app.untilparking.domain.model.EligibilityStatus.VERIFIED_MATCH, eligibility.status)
+    }
+
+    // ---- 혼잡도 스펙 C4 ----
+
+    @Test
+    fun `후보에 그 주차장의 혼잡도가 붙는다`() = runTest {
+        val repo = FakeParkingRepository(listOf(facility("a", at = SEORIM.offset(100.0)), facility("b", at = SEORIM.offset(200.0))))
+        val congestion = FakeCongestionRepository(listOf(report("a", CongestionLevel.CONGESTED)))
+        val result = search(repo, congestion)(DEST, SearchConditions(), profile())
+        assertEquals(Congestion(CongestionLevel.CONGESTED, 1), result.candidates.first { it.parking.id == "a" }.congestion)
+        assertNull(result.candidates.first { it.parking.id == "b" }.congestion)
+    }
+
+    @Test
+    fun `혼잡도를 읽지 못해도 후보는 나온다`() = runTest {
+        val repo = FakeParkingRepository(listOf(facility("a")))
+        val result = search(repo, FakeCongestionRepository(failRead = true))(DEST, SearchConditions(), profile())
+        assertEquals(listOf("a"), result.candidates.ids)
+        assertNull(result.candidates.single().congestion)
+    }
+
+    @Test
+    fun `혼잡도는 정렬을 바꾸지 않는다`() = runTest {
+        val repo = FakeParkingRepository(listOf(facility("far", at = SEORIM.offset(400.0)), facility("near", at = SEORIM.offset(100.0))))
+        val congestion = FakeCongestionRepository(listOf(report("near", CongestionLevel.CONGESTED), report("far", CongestionLevel.SMOOTH)))
+        SortKey.entries.forEach { sort ->
+            val result = search(repo, congestion)(DEST, SearchConditions(sort = sort), profile())
+            assertEquals("정렬 $sort", listOf("near", "far"), result.candidates.ids)
+        }
     }
 }

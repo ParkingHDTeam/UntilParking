@@ -38,6 +38,16 @@ class VoiceCommandTest {
     fun `네 번째는 보이는 범위 밖이라 불분명`() = assertEquals(VoiceCommand.Unclear, parse("네 번째", 3))
 
     @Test
+    fun `다섯 줄이 보이면 네 번째와 다섯 번째도 고른다`() {
+        assertEquals(VoiceCommand.Select(3), parse("네 번째", 5))
+        assertEquals(VoiceCommand.Select(4), parse("다섯 번째", 5))
+        assertEquals(VoiceCommand.Select(4), parse("5번", 5))
+    }
+
+    @Test
+    fun `여섯 번째는 한 페이지 밖이라 불분명`() = assertEquals(VoiceCommand.Unclear, parse("여섯 번째", 5))
+
+    @Test
     fun `보이는 게 둘인데 세 번째면 불분명`() = assertEquals(VoiceCommand.Unclear, parse("세 번째", 2))
 
     @Test

@@ -48,7 +48,7 @@ sealed interface VoiceCommand {
     data class ExcludeMechanical(val exclude: Boolean) : VoiceCommand
     data class IncludeUnknownAvailability(val include: Boolean) : VoiceCommand
     data class Sort(val key: SortKey) : VoiceCommand
-    /** 0부터. 지금 보이는 3개 기준. */
+    /** 0부터. 지금 보이는 줄(한 페이지 5개) 기준. */
     data class Select(val index: Int) : VoiceCommand
     data object NextPage : VoiceCommand
     data object PreviousPage : VoiceCommand

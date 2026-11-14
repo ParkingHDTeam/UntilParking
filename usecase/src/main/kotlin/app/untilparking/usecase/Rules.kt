@@ -227,13 +227,16 @@ class ParseVoiceCommandImpl : ParseVoiceCommand {
             t.contains("안내시작") -> return VoiceCommand.StartGuidance
         }
         val index = ORDINALS.entries.firstOrNull { (word, _) -> t.contains(word) }?.value ?: return VoiceCommand.Unclear
-        // 번호는 지금 보이는 3개 기준이다
+        // 번호는 지금 보이는 줄(한 페이지 5개) 기준이다
         return if (index < visibleCount) VoiceCommand.Select(index) else VoiceCommand.Unclear
     }
 
     private companion object {
         val CANCEL_WORDS = listOf("취소", "그만", "음성종료")
-        val ORDINALS = linkedMapOf("첫번째" to 0, "두번째" to 1, "세번째" to 2, "1번" to 0, "2번" to 1, "3번" to 2)
+        val ORDINALS = linkedMapOf(
+            "첫번째" to 0, "두번째" to 1, "세번째" to 2, "네번째" to 3, "다섯번째" to 4,
+            "1번" to 0, "2번" to 1, "3번" to 2, "4번" to 3, "5번" to 4,
+        )
     }
 }
 
@@ -255,7 +258,7 @@ class ClassifyDestinationChangeImpl : ClassifyDestinationChange {
     }
 }
 
-/** 스펙 R2. 3개씩. */
+/** 스펙 R2. 5개씩(2026-11-14 사용자 결정, 그 전에는 3개). */
 class PageCandidatesImpl : PageCandidates {
 
     override fun invoke(items: List<ParkingCandidate>, page: Int): Page<ParkingCandidate> {
@@ -265,6 +268,6 @@ class PageCandidatesImpl : PageCandidates {
     }
 
     private companion object {
-        const val PAGE_SIZE = 3
+        const val PAGE_SIZE = 5
     }
 }

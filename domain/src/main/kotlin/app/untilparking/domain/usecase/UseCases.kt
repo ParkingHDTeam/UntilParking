@@ -88,7 +88,7 @@ fun interface ClassifyDestinationChange {
     operator fun invoke(previous: Destination?, next: Destination?, plannedEntrance: GeoPoint?): DestinationChange
 }
 
-/** R2 3개씩 페이지 */
+/** R2 5개씩 페이지 */
 fun interface PageCandidates {
     operator fun invoke(items: List<ParkingCandidate>, page: Int): Page<ParkingCandidate>
 }

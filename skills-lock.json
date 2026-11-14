@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "create-prd": {
+      "source": "phuryn/pm-skills",
+      "sourceType": "github",
+      "skillPath": "pm-execution/skills/create-prd/SKILL.md",
+      "computedHash": "d2601bab05668d84ee1c03865ffcd8f5b95ff0dd8e369161d89e73dd2f567718"
+    }
+  }
+}

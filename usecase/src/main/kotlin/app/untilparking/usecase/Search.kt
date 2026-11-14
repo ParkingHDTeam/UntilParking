@@ -18,6 +18,7 @@ import app.untilparking.domain.model.SearchConditions
 import app.untilparking.domain.model.SearchResult
 import app.untilparking.domain.model.VehicleProfile
 import app.untilparking.domain.model.distanceMetersTo
+import app.untilparking.domain.model.scheduleOn
 import app.untilparking.domain.repository.ParkingRepository
 import app.untilparking.domain.usecase.EstimateFee
 import app.untilparking.domain.usecase.JudgeAvailability
@@ -62,12 +63,14 @@ internal class CandidateBuilder(
             fee = estimateFee(facility.feeModel, startAt, conditions.parkingMinutes),
             availability = availability,
             link = link,
-            operating = operatingStatus(facility.operatingSchedule, startAt, endAt),
+            // 도착 예정일 요일의 운영 시간(공공 데이터 스펙 P3)
+            operating = operatingStatus(facility.scheduleOn(startAt.atZone(clock.zone).dayOfWeek), startAt, endAt),
         )
     }
 
     private fun operatingStatus(schedule: OperatingSchedule?, startAt: Instant, endAt: Instant): OperatingStatus {
         if (schedule == null) return OperatingStatus.UNKNOWN
+        if (schedule.closed) return OperatingStatus.CLOSED
         if (schedule.allDay) return OperatingStatus.OPEN
         val start = startAt.atZone(clock.zone)
         val end = endAt.atZone(clock.zone)

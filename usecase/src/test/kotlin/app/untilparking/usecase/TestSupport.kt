@@ -77,9 +77,12 @@ fun facility(
     category: ParkingCategory = ParkingCategory.OFF_STREET,
     entrance: GeoPoint? = at,
     selfZoneVerified: Boolean = false,
+    saturday: OperatingSchedule? = schedule,
+    holiday: OperatingSchedule? = schedule,
 ) = ParkingFacility(
     id = id, name = "주차장 $id", location = at, entrance = entrance, category = category, method = method,
     restrictions = restrictions, feeModel = fee, operatingSchedule = schedule, selfZoneVerified = selfZoneVerified,
+    saturdaySchedule = saturday, holidaySchedule = holiday,
 )
 
 fun profile(

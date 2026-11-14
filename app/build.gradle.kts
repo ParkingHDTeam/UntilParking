@@ -26,6 +26,8 @@ android {
 
         buildConfigField("String", "PLEOS_CLIENT_ID", localValue("pleos.clientId"))
         buildConfigField("String", "PLEOS_CLIENT_SECRET", localValue("pleos.clientSecret"))
+        // 공공데이터포털 Decoding 키(전국주차장정보표준데이터). pleos 플레이버만 읽는다
+        buildConfigField("String", "PARKING_SERVICE_KEY", localValue("parking.serviceKey"))
     }
 
     // 기획서 27절: mock = 가상 데이터와 차량 상태(폰 에뮬레이터용), pleos = 실제 Pleos SDK

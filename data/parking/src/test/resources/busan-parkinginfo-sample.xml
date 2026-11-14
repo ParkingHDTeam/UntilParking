@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<response>
+  <header><resultCode>00</resultCode><resultMsg>NORMAL SERVICE.</resultMsg></header>
+  <body>
+    <items>
+    <item>
+      <curravacnt>103</curravacnt>
+      <lastupdatetime>2026-11-11 17:50:00</lastupdatetime>
+      <maxcnt>152</maxcnt>
+      <parkgcd>A01</parkgcd>
+      <parkingcnt>49</parkingcnt>
+      <parknm>반송1, 3동 공영</parknm>
+    </item>
+    <item>
+      <curravacnt>0</curravacnt>
+      <lastupdatetime>2026-11-11 17:50:00</lastupdatetime>
+      <maxcnt>68</maxcnt>
+      <parkgcd>A06</parkgcd>
+      <parkingcnt>68</parkingcnt>
+      <parknm>좌1동</parknm>
+    </item>
+    <item>
+      <curravacnt></curravacnt>
+      <lastupdatetime>2026-11-11 17:50:00</lastupdatetime>
+      <maxcnt>100</maxcnt>
+      <parkgcd>A435</parkgcd>
+      <parkingcnt></parkingcnt>
+      <parknm>예비</parknm>
+    </item>
+    </items>
+    <numOfRows>1000</numOfRows><pageNo>1</pageNo><totalCount>48</totalCount>
+  </body>
+</response>

@@ -12,6 +12,7 @@ import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNotNull
 import org.junit.Assert.assertTrue
 import org.junit.Test
+import java.time.Duration
 import java.time.LocalTime
 
 /** 스펙 R2 검색 범위, R6 시간, 후보 조립 (기획서 15·19절). */
@@ -99,6 +100,41 @@ class SearchParkingTest {
         assertEquals(listOf("open", "unknown"), result.candidates.ids)
         assertEquals(OperatingStatus.OPEN, result.candidates[0].operating)
         assertEquals(OperatingStatus.UNKNOWN, result.candidates[1].operating)
+    }
+
+    // 공공 데이터 스펙 P3. NOW(2026-11-07 14:32)는 토요일이다.
+    private val weekday9to18 = OperatingSchedule(LocalTime.of(9, 0), LocalTime.of(18, 0))
+    private val until13 = OperatingSchedule(LocalTime.of(9, 0), LocalTime.of(13, 0))
+
+    @Test
+    fun `토요일 도착이면 토요일 운영 시간으로 판정한다`() = runTest {
+        val satShort = facility("sat", schedule = weekday9to18, saturday = until13)
+        val result = search(FakeParkingRepository(listOf(satShort)))(DEST.copy(etaAt = NOW), SearchConditions(), profile())
+        assertEquals(emptyList<String>(), result.candidates.ids)
+    }
+
+    @Test
+    fun `일요일 도착이면 공휴일 운영 시간으로 판정한다`() = runTest {
+        val holidayShort = facility("hol", schedule = weekday9to18, holiday = until13)
+        val sunday = NOW.plus(Duration.ofDays(1))
+        val result = search(FakeParkingRepository(listOf(holidayShort)))(DEST.copy(etaAt = sunday), SearchConditions(), profile())
+        assertEquals(emptyList<String>(), result.candidates.ids)
+    }
+
+    @Test
+    fun `그 요일 운영 시간이 없으면 UNKNOWN`() = runTest {
+        val noSaturday = facility("nosat", schedule = weekday9to18, saturday = null)
+        val result = search(FakeParkingRepository(listOf(noSaturday)))(DEST.copy(etaAt = NOW), SearchConditions(), profile())
+        assertEquals(OperatingStatus.UNKNOWN, result.candidates.single().operating)
+    }
+
+    @Test
+    fun `그 요일이 휴무면 CLOSED로 후보에서 빠진다`() = runTest {
+        // 휴무 표시는 시각보다 우선한다
+        val closedSaturday = facility("closedsat", schedule = weekday9to18, saturday = weekday9to18.copy(closed = true))
+        val openSaturday = facility("opensat", schedule = weekday9to18)
+        val result = search(FakeParkingRepository(listOf(closedSaturday, openSaturday)))(DEST.copy(etaAt = NOW), SearchConditions(), profile())
+        assertEquals(listOf("opensat"), result.candidates.ids)
     }
 
     @Test

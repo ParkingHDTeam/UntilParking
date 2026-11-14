@@ -1,5 +1,6 @@
 package app.untilparking.domain.model
 
+import java.time.DayOfWeek
 import java.time.Instant
 import java.time.LocalDate
 import java.time.LocalTime
@@ -39,7 +40,17 @@ data class FeeModel(
     val maxDailyWon: Int? = null,
 )
 
-data class OperatingSchedule(val open: LocalTime, val close: LocalTime, val allDay: Boolean = false)
+data class OperatingSchedule(
+    val open: LocalTime,
+    val close: LocalTime,
+    val allDay: Boolean = false,
+    /** 그 요일은 운영하지 않는다(공공 데이터 스펙 P2). open·close는 보지 않는다. */
+    val closed: Boolean = false,
+) {
+    companion object {
+        val CLOSED_ALL_DAY = OperatingSchedule(LocalTime.MIDNIGHT, LocalTime.MIDNIGHT, closed = true)
+    }
+}
 
 data class ParkingFacility(
     val id: String,
@@ -53,10 +64,21 @@ data class ParkingFacility(
     val operator: String? = null,
     val restrictions: List<Restriction> = emptyList(),
     val feeModel: FeeModel? = null,
+    /** 평일(월~금) 운영 시간. 토요일·일요일 값을 따로 주지 않으면 매일 이 값이다. */
     val operatingSchedule: OperatingSchedule? = null,
     /** MIXED일 때 자주식 구역의 별도 입구·이용 조건이 확인됐나(스펙 R3). */
     val selfZoneVerified: Boolean = false,
+    val saturdaySchedule: OperatingSchedule? = operatingSchedule,
+    /** 일요일에 쓰는 공휴일 운영 시간. 법정 공휴일 달력은 보지 않는다(공공 데이터 스펙 P3). */
+    val holidaySchedule: OperatingSchedule? = operatingSchedule,
 )
+
+/** 그 요일의 운영 시간. null이면 모른다. */
+fun ParkingFacility.scheduleOn(day: DayOfWeek): OperatingSchedule? = when (day) {
+    DayOfWeek.SATURDAY -> saturdaySchedule
+    DayOfWeek.SUNDAY -> holidaySchedule
+    else -> operatingSchedule
+}
 
 /** 데이터 출처가 준 잔여 대수 원본. 판정 전. */
 data class AvailabilityReading(

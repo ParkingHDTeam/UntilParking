@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<response>
+  <header>
+    <resultCode>00</resultCode>
+    <resultMsg>NORMAL SERVICE.</resultMsg>
+  </header>
+  <body>
+    <item>
+      <name>NC대전 유성점</name>
+      <lat>36.3537391</lat>
+      <lon>127.3440396</lon>
+      <address>유성구 봉명동 549-11</address>
+      <tel>042-332-0000</tel>
+      <totalQty />
+      <resQty>0</resQty>
+      <type>유료</type>
+      <baseTime>10</baseTime>
+      <baseRate>500</baseRate>
+      <addTime>10</addTime>
+      <addRate>500</addRate>
+      <extraBaseTime>10</extraBaseTime>
+      <extraAddTime>10</extraAddTime>
+      <extraAddRate>500</extraAddRate>
+      <weekdayOpenTime>00:00</weekdayOpenTime>
+      <weekdayCloseTime>24:00</weekdayCloseTime>
+      <satOpenTime>00:00</satOpenTime>
+      <satCloseTime>24:00</satCloseTime>
+      <holidayOpenTime>00:00</holidayOpenTime>
+      <holidayCloseTime>24:00</holidayCloseTime>
+      <operDay>평일,토요일,휴일</operDay>
+    </item>
+    <item>
+      <name>NJ타워 주차장</name>
+      <lat>36.35195389</lat>
+      <lon>127.37948831</lon>
+      <address>대전서구대덕대로216</address>
+      <tel>010-7433-1542</tel>
+      <totalQty>229</totalQty>
+      <resQty>173</resQty>
+      <type>유료</type>
+      <baseTime>30</baseTime>
+      <baseRate>2000</baseRate>
+      <addTime>30</addTime>
+      <addRate>2000</addRate>
+      <extraBaseTime>30</extraBaseTime>
+      <extraAddTime>2000</extraAddTime>
+      <extraAddRate>0</extraAddRate>
+      <weekdayOpenTime>06:00</weekdayOpenTime>
+      <weekdayCloseTime>01:00</weekdayCloseTime>
+      <satOpenTime>06:00</satOpenTime>
+      <satCloseTime>01:00</satCloseTime>
+      <holidayOpenTime>06:00</holidayOpenTime>
+      <holidayCloseTime>01:00</holidayCloseTime>
+      <operDay>평일,토요일,휴일</operDay>
+    </item>
+    <numOfRows>50</numOfRows>
+    <pageNo>1</pageNo>
+    <totalCount>756</totalCount>
+  </body>
+</response>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+

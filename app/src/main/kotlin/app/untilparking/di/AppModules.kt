@@ -56,7 +56,7 @@ import javax.inject.Singleton
 
 // 의존 그래프 전체가 이 파일과 플레이버별 EnvModule(내비·주행·음성)에 있다. 구현을 바꾸려면 여기만 고친다.
 
-/** 플레이버와 무관한 저장소. 주차 데이터는 아직 서버가 없어 두 플레이버 모두 가상 데이터다. */
+/** 플레이버와 무관한 저장소. 주차 데이터(ParkingRepository)는 플레이버마다 달라 EnvModule이 고른다. */
 @Module
 @InstallIn(SingletonComponent::class)
 object RepositoryModule {
@@ -65,9 +65,6 @@ object RepositoryModule {
 
     @Provides @Singleton
     fun sampleParking(clock: Clock): SampleParkingRepository = SampleParkingRepository(clock)
-
-    @Provides
-    fun parking(sample: SampleParkingRepository): ParkingRepository = sample
 
     @Provides @Singleton
     fun vehicle(@ApplicationContext context: Context): VehicleProfileRepository = DataStoreVehicleProfileRepository(context)

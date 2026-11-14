@@ -40,6 +40,7 @@ Pleos Connect 에뮬레이터는 Android Studio 안에서 도는 차량(AAOS) �
 | 공공 주차장 API | pleos 플레이버에 전국주차장정보표준데이터 어댑터를 붙였다(전국 데이터를 받아 기기에 30일 저장, 반경 검색은 기기에서). 2026-11-09 Pleos 에뮬레이터에서 확인: 18,994건 19쪽을 약 10초에 받아 11.6MB로 저장, 내비 목적지 "송정역 5호선" 반경 1km에 신방화역(782m)이 나온다. 서울은 표준데이터 등록 건수가 적어 반경 500m 결과가 없을 수 있다. 규칙은 [docs/specs/public-parking-data.md](docs/specs/public-parking-data.md). 2026-11-14 실시간 잔여 출처(부산시설공단·대전·한국교통안전공단)를 붙였다. 표준데이터 시설과 짝이 맞는 곳에만 남은 자리가 나온다(교통안전공단 290곳, 대전 4곳, 부산 0곳). 규칙은 [docs/specs/realtime-availability.md](docs/specs/realtime-availability.md). TourAPI는 미연결 |
 | 화면 S04·S09·S10·S12·S13·S14 | 미구현 |
 | S00 목적지 직접 검색 | 2026-11-09 추가. 버튼 → "어디로 갈까요?" → 들은 말로 내비 장소 검색 화면을 연다(정차 중만). 단위 테스트 6개 통과, Pleos 에뮬레이터 실제 동작과 시안 대조는 확인 전. 규칙은 [docs/specs/destination-search.md](docs/specs/destination-search.md) |
+| 목적지 알림 | 2026-11-12 추가. 앱이 화면에 없을 때 내비 목적지가 새 방문으로 바뀌면 알림을 띄우고, 누르면 앱이 S02로 열린다. 단위 테스트 4개 통과, Pleos 에뮬레이터에서 알림이 보이는 방식은 확인 전. 규칙은 [docs/specs/destination-alert.md](docs/specs/destination-alert.md) |
 
 ## 구조
 
@@ -51,6 +52,7 @@ flowchart LR
     app --> usecase[usecase<br/>판정·제외·정렬·요금·음성 해석]
     app --> parking[data:parking<br/>가상 데이터]
     app --> vehicle[data:vehicle<br/>DataStore]
+    app --> notification[data:notification<br/>Android 알림]
     app -. pleos .-> navi[data:navi<br/>NaviHelper]
     app -. pleos .-> voice[data:voice<br/>STT·TTS]
     app -. pleos .-> driving[data:driving<br/>CarUxRestrictions]
@@ -58,6 +60,7 @@ flowchart LR
     usecase --> domain
     parking --> domain
     vehicle --> domain
+    notification --> domain
     navi --> domain
     voice --> domain
     driving --> domain
@@ -70,6 +73,7 @@ flowchart LR
 | `feature:parking` | 화면 S00·S01·S02·S03/S11·S06·S07·S08과 ViewModel(단일 상태 저장소). domain 인터페이스만 본다 | Compose, Hilt |
 | `data:parking` | 기획서 24절 가상 주차장 데이터(mock)와 전국주차장정보표준데이터 어댑터(pleos) | 없음(JDK HTTP·Android org.json) |
 | `data:vehicle` | 차량 프로필 저장(version 증가) | Jetpack DataStore |
+| `data:notification` | 목적지 알림 띄우기·지우기 | 없음(Android 알림) |
 | `data:navi` | 목적지 조회·변경 이벤트, 경로 변경 요청과 결과 확인 | Pleos NaviHelper |
 | `data:voice` | 음성 안내, 음성 답 한 번 듣기 | Pleos STT·TTS |
 | `data:driving` | 주행·정차·불명 (주행 규제 상태) | AAOS `android.car` |

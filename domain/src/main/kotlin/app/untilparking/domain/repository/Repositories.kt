@@ -64,3 +64,12 @@ interface VehicleProfileRepository {
     /** 원자적으로 저장하고 version을 올린다. */
     suspend fun save(profile: VehicleProfile)
 }
+
+/** 구현: data:notification (Android 알림). 목적지 알림 스펙 N1. */
+interface DestinationAlertRepository {
+    /** "주변 주차장 보기" 알림을 띄운다. 이미 떠 있으면 새 목적지로 바꾼다. */
+    fun show(destination: Destination)
+
+    /** 떠 있는 알림을 지운다. 없으면 아무 일도 없다. */
+    fun clear()
+}

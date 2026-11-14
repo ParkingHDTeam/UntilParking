@@ -19,6 +19,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -28,6 +29,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import app.untilparking.domain.model.DrivingState
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 /** mock 플레이버에서만 보이는 띠. 주행 상태·내비 목적지·만차·음성 입력을 가상으로 바꾼다. */
 @Composable
@@ -40,6 +43,7 @@ fun MockPanel(controls: MockControls) {
     var voiceText by remember { mutableStateOf("") }
     val spoken by controls.spoken.collectAsState(initial = null)
     val placeSearch by controls.placeSearch.collectAsState(initial = null)
+    val scope = rememberCoroutineScope()
 
     Surface(color = Color(0xFF2B1F3F), modifier = Modifier.fillMaxWidth()) {
         Column(Modifier.padding(horizontal = 12.dp, vertical = 4.dp)) {
@@ -65,6 +69,20 @@ fun MockPanel(controls: MockControls) {
                         selected = destination,
                         onClick = { destination = !destination; controls.setDestinationPresent(destination) },
                         label = { Text("내비 목적지 있음", fontSize = 12.sp) },
+                    )
+                    // 누르고 홈으로 나가면 화면에 없을 때 목적지가 잡히는 상황이 된다(목적지 알림 스펙 N1)
+                    FilterChip(
+                        selected = false,
+                        onClick = {
+                            destination = false
+                            controls.setDestinationPresent(false)
+                            scope.launch {
+                                delay(5_000)
+                                destination = true
+                                controls.setDestinationPresent(true)
+                            }
+                        },
+                        label = { Text("목적지 5초 뒤 설정", fontSize = 12.sp) },
                     )
                     FilterChip(
                         selected = full,

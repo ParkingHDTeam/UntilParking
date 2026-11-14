@@ -124,3 +124,13 @@ fun interface Listen {
 fun interface OpenDestinationSearch {
     operator fun invoke(heard: String?, driving: DrivingState): DestinationSearchResult
 }
+
+/** 목적지 알림 스펙 N1: 앱이 화면에 없을 때 새 방문 목적지를 알림으로 알린다. change는 R7 분류 결과다. */
+fun interface AlertNewDestination {
+    operator fun invoke(change: DestinationChange, next: Destination?, appVisible: Boolean)
+}
+
+/** 목적지 알림 스펙 N1: 앱이 화면에 오면 떠 있는 알림을 지운다. */
+fun interface DismissDestinationAlert {
+    operator fun invoke()
+}

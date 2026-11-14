@@ -1,14 +1,18 @@
 package app.untilparking.di
 
 import android.content.Context
+import app.untilparking.data.notification.NotificationDestinationAlert
 import app.untilparking.data.parking.SampleParkingRepository
 import app.untilparking.data.vehicle.DataStoreVehicleProfileRepository
+import app.untilparking.domain.repository.DestinationAlertRepository
 import app.untilparking.domain.repository.DrivingStateRepository
 import app.untilparking.domain.repository.NavigationRepository
 import app.untilparking.domain.repository.ParkingRepository
 import app.untilparking.domain.repository.VehicleProfileRepository
 import app.untilparking.domain.repository.VoiceRepository
+import app.untilparking.domain.usecase.AlertNewDestination
 import app.untilparking.domain.usecase.ClassifyDestinationChange
+import app.untilparking.domain.usecase.DismissDestinationAlert
 import app.untilparking.domain.usecase.EstimateFee
 import app.untilparking.domain.usecase.ExpandRadius
 import app.untilparking.domain.usecase.JudgeAvailability
@@ -28,7 +32,9 @@ import app.untilparking.domain.usecase.SearchParking
 import app.untilparking.domain.usecase.SelectCandidates
 import app.untilparking.domain.usecase.Speak
 import app.untilparking.domain.usecase.ValidateVehicleValue
+import app.untilparking.usecase.AlertNewDestinationImpl
 import app.untilparking.usecase.ClassifyDestinationChangeImpl
+import app.untilparking.usecase.DismissDestinationAlertImpl
 import app.untilparking.usecase.EstimateFeeImpl
 import app.untilparking.usecase.ExpandRadiusImpl
 import app.untilparking.usecase.JudgeAvailabilityImpl
@@ -70,6 +76,9 @@ object RepositoryModule {
 
     @Provides @Singleton
     fun vehicle(@ApplicationContext context: Context): VehicleProfileRepository = DataStoreVehicleProfileRepository(context)
+
+    @Provides @Singleton
+    fun destinationAlert(@ApplicationContext context: Context): DestinationAlertRepository = NotificationDestinationAlert(context)
 }
 
 /** 유스케이스: 상태가 없어 필요할 때마다 만든다. */
@@ -98,6 +107,8 @@ object UseCaseModule {
     @Provides fun observeDestination(nav: NavigationRepository): ObserveDestination = ObserveDestinationImpl(nav)
     @Provides fun refreshDestination(nav: NavigationRepository): RefreshDestination = RefreshDestinationImpl(nav)
     @Provides fun openDestinationSearch(nav: NavigationRepository): OpenDestinationSearch = OpenDestinationSearchImpl(nav)
+    @Provides fun alertNewDestination(alerts: DestinationAlertRepository): AlertNewDestination = AlertNewDestinationImpl(alerts)
+    @Provides fun dismissDestinationAlert(alerts: DestinationAlertRepository): DismissDestinationAlert = DismissDestinationAlertImpl(alerts)
     @Provides fun observeDriving(driving: DrivingStateRepository): ObserveDrivingState = ObserveDrivingStateImpl(driving)
     @Provides fun observeVehicle(vehicle: VehicleProfileRepository): ObserveVehicleProfile = ObserveVehicleProfileImpl(vehicle)
     @Provides fun saveVehicle(vehicle: VehicleProfileRepository): SaveVehicleProfile = SaveVehicleProfileImpl(vehicle)

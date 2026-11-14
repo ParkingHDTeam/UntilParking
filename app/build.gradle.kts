@@ -65,6 +65,7 @@ dependencies {
     implementation(project(":feature:parking"))
     implementation(project(":data:parking"))
     implementation(project(":data:vehicle"))
+    implementation(project(":data:notification"))
     // Pleos SDK 어댑터는 pleos 플레이버에만 들어간다. mock APK에는 SDK가 없다.
     "pleosImplementation"(project(":data:navi"))
     "pleosImplementation"(project(":data:voice"))

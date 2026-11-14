@@ -2,6 +2,7 @@ package app.untilparking.feature.parking
 
 import app.untilparking.domain.model.Availability
 import app.untilparking.domain.model.AvailabilityStatus
+import app.untilparking.domain.model.CongestionLevel
 import app.untilparking.domain.model.Distance
 import app.untilparking.domain.model.DistanceKind
 import app.untilparking.domain.model.Eligibility
@@ -26,6 +27,13 @@ fun sortLabel(key: SortKey): String = when (key) {
     SortKey.AVAILABILITY -> "여유 공간 우선"
 }
 
+/** 정렬 선택 버튼에 쓰는 짧은 이름. */
+fun sortShortLabel(key: SortKey): String = when (key) {
+    SortKey.DISTANCE -> "거리순"
+    SortKey.COST -> "요금순"
+    SortKey.AVAILABILITY -> "여유순"
+}
+
 fun methodLabel(method: ParkingMethod): String = when (method) {
     ParkingMethod.SELF -> "자주식"
     ParkingMethod.MECHANICAL -> "기계식"
@@ -45,6 +53,19 @@ fun availabilityLabel(a: Availability): String = when (a.status) {
     AvailabilityStatus.STALE -> "잔여 ${a.availableSpaces}대 · 오래된 정보"
     AvailabilityStatus.UNAVAILABLE -> "잔여 대수 정보 없음"
     AvailabilityStatus.ERROR -> "잔여 정보 조회 실패"
+}
+
+fun congestionLabel(level: CongestionLevel): String = when (level) {
+    CongestionLevel.SMOOTH -> "원활"
+    CongestionLevel.NORMAL -> "보통"
+    CongestionLevel.CONGESTED -> "혼잡"
+}
+
+/** S13 버튼 아래 설명. 운전자마다 같은 기준으로 고르게 한다(혼잡도 스펙 C3). */
+fun congestionHint(level: CongestionLevel): String = when (level) {
+    CongestionLevel.SMOOTH -> "빈자리가 많아요"
+    CongestionLevel.NORMAL -> "빈자리가 조금 있어요"
+    CongestionLevel.CONGESTED -> "빈자리를 찾기 어려워요"
 }
 
 fun distanceLabel(d: Distance): String = when (d.kind) {
@@ -67,13 +88,13 @@ fun minutesLabel(minutes: Int): String = when {
 
 fun eligibilityLabel(e: Eligibility): String = when (e.status) {
     EligibilityStatus.VERIFIED_MATCH -> "차량 조건 확인"
-    EligibilityStatus.UNKNOWN -> "차량 제한 일부 미확인"
+    EligibilityStatus.UNKNOWN -> "차량 제한 미확인"
     EligibilityStatus.BLOCKED -> "입차 불가"
 }
 
-/** 수신 시각 줄. 원본 갱신 시각이 없으면 그렇다고 말한다. */
+/** 잔여 대수가 언제 것인지. 원본 갱신 시각이 있으면 그것을, 없으면 받은 시각을 말한다. */
 fun receivedLine(a: Availability?, receivedAt: Instant?): String {
     val received = (a?.receivedAt ?: receivedAt)?.hm() ?: return "아직 조회 전"
     val source = a?.sourceUpdatedAt?.hm()
-    return if (source != null) "잔여 대수 수신 $received · 원본 갱신 $source" else "잔여 대수 수신 $received · 원본 갱신 시각 미제공"
+    return if (source != null) "잔여 대수 $source 갱신" else "잔여 대수 $received 수신"
 }

@@ -243,11 +243,15 @@ class ParseVoiceCommandImpl : ParseVoiceCommand {
 /** 스펙 R7. 예정 입구 30m 이내로 바뀐 목적지는 앱 자신의 경로 변경이다. */
 class ClassifyDestinationChangeImpl : ClassifyDestinationChange {
 
-    override fun invoke(previous: Destination?, next: Destination?, plannedEntrance: GeoPoint?): DestinationChange {
+    override fun invoke(previous: Destination?, next: Destination?, plannedEntrance: GeoPoint?, routePending: Boolean): DestinationChange {
         if (previous == null && next == null) return DestinationChange.SAME
-        if (next == null) return DestinationChange.NEW_VISIT
+        // 앱이 경로를 요청하면 내비가 이전 경로를 먼저 취소해 목적지가 잠깐 없어진다(2026-11-14 Pleos 에뮬레이터 로그). 그때 방문을 지우지 않는다.
+        if (next == null) return if (routePending && previous != null) DestinationChange.SAME else DestinationChange.NEW_VISIT
+        val atEntrance = plannedEntrance != null && next.location.distanceMetersTo(plannedEntrance) <= OWN_REROUTE_METERS + EPSILON_M
+        // 방문 목적지가 곧 고른 주차장이면 요청의 답이 같은 목적지로 온다. 요청 중이면 그것을 답으로 본다.
+        if (routePending && atEntrance) return DestinationChange.OWN_REROUTE
         if (previous != null && previous.id == next.id && previous.location == next.location) return DestinationChange.SAME
-        if (plannedEntrance != null && next.location.distanceMetersTo(plannedEntrance) <= OWN_REROUTE_METERS + EPSILON_M) return DestinationChange.OWN_REROUTE
+        if (atEntrance) return DestinationChange.OWN_REROUTE
         return DestinationChange.NEW_VISIT
     }
 

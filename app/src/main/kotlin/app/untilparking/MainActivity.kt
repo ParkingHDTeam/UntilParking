@@ -1,5 +1,8 @@
 package app.untilparking
 
+import android.Manifest
+import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -28,6 +31,10 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         // 이 앱이 쓰는 Pleos 권한(NAVI_*, STT·TTS)은 실행 중 요청이 필요한 dangerous 권한이 아니다.
+        // 알림 권한만 묻는다(목적지 알림 스펙 N1). 거절해도 앱 동작은 같고, 두 번 거절하면 시스템이 더 묻지 않는다.
+        if (Build.VERSION.SDK_INT >= 33 && checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
+            requestPermissions(arrayOf(Manifest.permission.POST_NOTIFICATIONS), 0)
+        }
         setContent {
             UntilParkingTheme {
                 Column(Modifier.fillMaxSize()) {
@@ -36,5 +43,15 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        viewModel.onAppVisible(true)
+    }
+
+    override fun onStop() {
+        viewModel.onAppVisible(false)
+        super.onStop()
     }
 }

@@ -83,9 +83,9 @@ fun interface ParseVoiceCommand {
     operator fun invoke(utterance: String, visibleCount: Int): VoiceCommand
 }
 
-/** R7 목적지 변경 분류: 자체 경로 변경인가 새 방문인가 */
+/** R7 목적지 변경 분류: 자체 경로 변경인가 새 방문인가. routePending은 앱이 보낸 경로 요청의 결과를 기다리는 중인지다. */
 fun interface ClassifyDestinationChange {
-    operator fun invoke(previous: Destination?, next: Destination?, plannedEntrance: GeoPoint?): DestinationChange
+    operator fun invoke(previous: Destination?, next: Destination?, plannedEntrance: GeoPoint?, routePending: Boolean): DestinationChange
 }
 
 /** R2 5개씩 페이지 */

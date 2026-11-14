@@ -71,7 +71,7 @@ flowchart LR
 |---|---|---|
 | `domain` | 엔티티, 저장소·유스케이스 인터페이스, 오류 어휘. 순수 Kotlin | 코루틴 |
 | `usecase` | 차량 제한 판정, 잔여 상태, 요금, 제외·정렬, 검색·재조회, 반경 확대, 페이지, 입력 검증, 음성 해석, 목적지 변경 분류 | 없음 |
-| `feature:parking` | 화면 S00·S01·S02·S03/S11·S06·S07·S08과 ViewModel(단일 상태 저장소). domain 인터페이스만 본다 | Compose, Hilt |
+| `feature:parking` | 화면 S00·S01·S02·S03/S11·S07·S08과 ViewModel(단일 상태 저장소). S06 최종 확인은 2026-11-12에 없앴다(S02 줄을 누르면 바로 안내). domain 인터페이스만 본다 | Compose, Hilt |
 | `data:parking` | 기획서 24절 가상 주차장 데이터(mock)와 전국주차장정보표준데이터 어댑터(pleos) | 없음(JDK HTTP·Android org.json) |
 | `data:vehicle` | 차량 프로필 저장(version 증가) | Jetpack DataStore |
 | `data:notification` | 목적지 알림 띄우기·지우기 | 없음(Android 알림) |

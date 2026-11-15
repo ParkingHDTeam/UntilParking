@@ -1,6 +1,6 @@
 # 주차까지 (가칭)
 
-내비 목적지의 주차 지원 여부와 주변 주차장의 이용 조건(차량 크기·주차 방식·잔여 대수·요금)을 비교해 고르고, 차량 도착지를 그 주차장 입구로 바꿔 주는 차량용 앱. 현대자동차그룹 차량용 앱 개발 공모전 출품작이며 Pleos Connect(AAOS)에서 돈다. 형제 저장소 `../dropByExhibit`(들러가는 전시)과 구조·SDK 어댑터를 같이 쓰지만 기획이 달라 별도 프로젝트다.
+내비 목적지의 주차 지원 여부와 주변 주차장의 이용 조건(차량 크기·주차 방식·잔여 대수·요금)을 비교해 고르고, 차량 도착지를 그 주차장 입구로 바꿔 주는 차량용 앱. 현대자동차그룹 차량용 앱 개발 공모전 출품작이며 Pleos Connect(AAOS)에서 돈다.
 
 기획서: 「주차까지 차량용 앱 화면 시안 기획서」(2026-11-01). 규칙의 정본은 [docs/specs/parking-guidance.md](docs/specs/parking-guidance.md).
 
@@ -10,7 +10,7 @@ Pleos Connect 에뮬레이터는 Android Studio 안에서 도는 차량(AAOS) �
 
 ## 실행 방법
 
-1. Android Studio에서 이 폴더를 연다. Gradle 9.6, AGP 9.4.1(형제 저장소와 같은 버전).
+1. Android Studio에서 이 폴더를 연다. Gradle 9.6, AGP 9.4.1.
 2. 루트의 `local.properties`에 아래 값을 넣는다. 이 파일은 저장소에 올리지 않는다.
 
    ```properties
@@ -79,7 +79,3 @@ flowchart LR
 | `data:voice` | 음성 안내, 음성 답 한 번 듣기 | Pleos STT·TTS |
 | `data:driving` | 주행·정차·불명 (주행 규제 상태) | AAOS `android.car` |
 | `app` | 의존 그래프(`di/AppModules.kt` + 플레이버별 `di/EnvModule.kt`), 매니페스트, mock 패널 | Hilt |
-
-## 형제 저장소와 공유하는 것
-
-`data:navi`·`data:voice`·`data:driving`은 dropByExhibit의 어댑터를 복사해 이 앱의 인터페이스에 맞췄다. 공유 라이브러리로 묶지 않은 이유는 두 출품작이 따로 제출되고 SDK 버전을 각자 올릴 수 있어야 해서다. 한쪽에서 SDK 쓰는 법을 배우면 다른 쪽에도 손으로 옮긴다.

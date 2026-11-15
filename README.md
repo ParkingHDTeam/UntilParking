@@ -31,10 +31,10 @@
 ### APK로 실행하기
 
 1. Android Studio의 Device Manager에서 Pleos Connect 에뮬레이터를 실행합니다. 버전은 아래 「Pleos Connect 에뮬레이터 버전과 화면 규격」과 같습니다.
-2. 접수 메일에 첨부한 pleos 빌드 APK를 설치합니다.
+2. 저장소의 `apk/파킹_주차까지_release.apk`를 설치합니다.
 
    ```bash
-   adb install -r <pleos APK 경로>
+   adb install -r apk/파킹_주차까지_release.apk
    ```
 
 3. 앱 목록에서 **주차까지 release**를 엽니다. 알림 권한을 묻는 창이 뜨면 허용합니다.
@@ -121,12 +121,7 @@ Pleos Connect 에뮬레이터에서는 다음 항목을 준비합니다.
 
 ## APK 파일 위치
 
-APK는 접수 메일에 첨부해 제출하며, 저장소와 GitHub Release에는 올리지 않았습니다. 파일 이름으로 종류를 구분합니다.
-
-| 파일 | 설치할 곳 |
-|---|---|
-| 이름에 `pleos`가 들어간 APK | Pleos Connect 에뮬레이터 (심사용) |
-| 이름에 `mock`이 들어간 APK | 일반 Android 에뮬레이터 (화면 확인용) |
+APK는 저장소의 [`apk/파킹_주차까지_release.apk`](apk/파킹_주차까지_release.apk)에 있습니다. pleos 변형의 release 빌드이며 Pleos Connect 에뮬레이터에 설치합니다.
 
 소스에서 직접 빌드하면 아래 경로에 APK가 생성됩니다.
 
